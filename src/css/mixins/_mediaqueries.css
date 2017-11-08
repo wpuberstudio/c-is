@@ -1,0 +1,46 @@
+/* get breakpoint value in .js:
+https://www.lullabot.com/articles/importing-css-breakpoints-into-javascript
+and… let's use mobile-first! */
+
+body::before {
+  display: none;
+  @mixin breakpoint phone { content: "phone"; }
+  @mixin breakpoint tablet { content: "tablet"; }
+  @mixin breakpoint desktop { content: "desktop"; }
+}
+
+/* Just Phones */
+@mixin breakpoint phone {
+  /* body { font-size: #{$base-font-size * 0.8}px; } */
+  .phone-hide,
+  %phone-hide { display: none !important; }
+}
+
+/* Just Tablets */
+@mixin breakpoint tablet-only {
+  /* body { font-size: #{$base-font-size * 0.7}px; } */
+}
+
+/* Tablet & Desktop */
+@mixin breakpoint tablet {
+  .tablet-hide,
+  %tablet-hide { display: none !important; }
+}
+
+/* Desktop */
+@mixin breakpoint desktop {
+  /* body { font-size: #{$base-font-size}px; } */
+  .desktop-hide,
+  %desktop-hide { display: none !important; }
+}
+
+/* HD */
+@mixin breakpoint hd {
+  /* body { font-size: #{$base-font-size}px; } */
+}
+
+/* Not Desktop */
+@mixin breakpoint not-desktop {
+  .desktop-only,
+  %desktop-only { display: none !important; }
+}

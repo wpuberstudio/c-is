@@ -1,0 +1,46 @@
+.icon {
+  display: inline-block;
+
+  &--facebook,
+  &--behance {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 50%;
+    border: 2px solid $colour-main;
+    vertical-align: middle;
+    transition: all 0.6s ease;
+
+    &:hover {
+      border-color: $colour-sub;
+
+      svg {
+        fill: $colour-sub;
+      }
+    }
+
+    svg {
+      fill: $colour-main;
+      width: 100%;
+      height: 100%;
+      transition: all 0.6s ease;
+    }
+  }
+
+  &--behance {
+    padding: 0.3rem;
+  }
+}
+
+.arrow {
+  display: inline-block;
+
+  &--left {
+    width: 1rem;
+    height: 0.75rem;
+    background-image: url(/assets/images/svgs/arrow-left.svg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 0.6rem;
+  }
+}

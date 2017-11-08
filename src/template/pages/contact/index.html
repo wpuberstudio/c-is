@@ -1,0 +1,65 @@
+{% block pageid %}is-contact{% endblock %}
+{% block title %}Contact{% endblock %}
+{% block loading %}{% endblock %}
+
+{% extends 'layout/_layout.html' %}
+
+{% block content %}
+
+<main class="main main--contact clear" id="main" role="main" data-page="Contact">
+  <div class="bg bg--main is-darker"></div>
+  <article class="content content--contact" id="content" data-component="Contact">
+    <section class="section section--contact">
+      <div class="contact">
+        <h3 class="contact__title">Let's have a chat. Futures, mush.</h3>
+
+        <div class="contact__inner">
+          <div class="contact__info">
+            <ul>
+              <li>
+                <strong class="contact__list-head">Our office</strong>
+                <p class="contact__list-desc">305 YS Garden 2-1-8 Honmachi, Nakano-ku, Tokyo</p>
+              </li>
+              <li>
+                <strong class="contact__list-head">Message directly</strong>
+                <p class="contact__list-desc"><a class="email-link" href="mailto:info@c-is.co">info@c-is.co</a></p>
+              </li>
+              <li>
+                <strong class="contact__list-head">Social Media</strong>
+                <p class="contact__list-desc">
+                  <a class="icon icon--facebook" href="https://www.facebook.com/cisanything" target="_blank">
+                    {% include 'svgs/facebook.svg' %}
+                  </a>
+                  <a class="icon icon--behance" href="https://www.behance.net/c-is" target=”_blank”>
+                    {% include 'svgs/behance.svg' %}
+                  </a>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="contact__form">
+            <form class="form form--contact" id="contact-form" action="https://formspree.io/info@c-is.co" method="POST">
+              <div class="form__inner">
+                <div class="form__container">
+                  <p class="form--contact__name"><input placeholder="Name" type="text" name="name"></p>
+                  <p class="form--contact__email"><input placeholder="E-mail" class="email" type="email" name="email"></p>
+                </div>
+                <p class="form--contact__subject"><input placeholder="Subject" type="text" name="subject"></p>
+                <div class="form__container">
+                  <p class="form--contact__message"><textarea placeholder="Message" name="textarea"></textarea></p>
+                  <p class="form--contact__submit"><input class="submit" type="submit" value="SEND"></p>
+                </div>
+              </div>
+            </form>
+            <div class="form__message" id="form-message"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

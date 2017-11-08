@@ -1,0 +1,92 @@
+.form {
+  overflow: hidden;
+  input {
+    transition: border-color 0.4s ease-in;
+
+    &[type="text"],
+    &[type="email"] {
+      @mixin font-size 28;
+
+      width: 100%;
+      padding-bottom: 0.2rem;
+      border: none;
+      background-color: transparent;
+      border-bottom: 0.1rem solid $colour-main;
+    }
+
+    &[type="submit"] {
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      border: none;
+      color: #000;
+      cursor: pointer;
+    }
+
+    &:focus {
+      outline: none;
+      border-color: $colour-sub;
+    }
+  }
+
+  textarea {
+    width: 95%;
+    height: 9rem;
+    padding: 0.8rem 0.5rem;
+    padding-left: 0;
+    background-color: transparent;
+    border: none;
+    border-bottom: 0.1rem solid $colour-main;
+    border-right: 0.1rem solid $colour-main;
+    transition: border-color 0.4s ease-in;
+
+    &:focus {
+      outline: none;
+      border-color: $colour-sub;
+    }
+  }
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--contact {
+    &__name,
+    &__email {
+      width: 46%;
+    }
+
+    &__subject {
+      width: 100%;
+    }
+
+    &__message {
+      @mixin font-size 32;
+
+      width: calc(100% - 4rem);
+      margin: 1rem 0;
+    }
+
+    &__submit {
+      width: 4rem;
+      height: auto;
+      background-color: $colour-main;
+
+      &:hover {
+        background-color: $colour-sub;
+        animation: flat-hover linear 0.4s forwards;
+      }
+    }
+  }
+
+  &__message {
+    &.is-done {
+      @mixin font-size 40;
+
+      padding: 6rem 0;
+      text-align: center;
+      color: $colour-sub;
+    }
+  }
+}

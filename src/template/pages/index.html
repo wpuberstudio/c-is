@@ -1,0 +1,40 @@
+{% block pageid %}is-home{% endblock %}
+{% block title %}Home{% endblock %}
+{% block loading %}{% endblock %}
+
+{% extends 'layout/_layout.html' %}
+
+{% block content %}
+
+<main class="main main--home clear" id="main" role="main" data-page="Home" data-page-title="Home">
+  <div class="bg bg--main"></div>
+  <article class="content content--home" id="content" data-component="Home">
+    <section class="section section--top">
+      <div class="top">
+        <div class="top__shape">C</div>
+        <h2 class="top__title"><strong>C is</strong><br>a creative design agancy</h2>
+        <p class="top__desc">We make design, websites and co.</p>
+      </div>
+    </section>
+
+    <div class="indicator">
+      <div class="indicator__inner" data-animation="grow"></div>
+    </div>
+
+    <section class="section section--post" data-template="Home" data-load="posts">
+
+      <ul class="post__list js-list-nav">
+        <li class="is-active">Sun Platinum</li>
+        <li>Y'z Films</li>
+        <li>Worlder</li>
+        <li class="is-half-inactive">ADK</li>
+        <li class="is-inactive">You Are Culture</li>
+      </ul>
+    </section>
+	</article>
+</main>
+
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

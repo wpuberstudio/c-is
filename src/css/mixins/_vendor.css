@@ -1,0 +1,56 @@
+@define-mixin full $position: absolute {
+  position: $position;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+@define-mixin pseudo $width, $height {
+  content: '';
+  position: absolute;
+  width: $width;
+  height: $height;
+}
+
+@define-mixin reset {
+  padding: 0;
+  margin: 0;
+}
+
+@define-mixin hide {
+  opacity: 0;
+  visibility: hidden;
+}
+
+@define-mixin show {
+  opacity: 1;
+  visibility: visible;
+}
+
+@define-mixin fadeIn $duration, $timing {
+  transition: opacity $duration $timing, visibility 0s $timing;
+}
+@define-mixin fadeOut $duration, $timing {
+  transition: opacity $duration $timing, visibility 0s $timing;
+}
+
+$browser-context: 24;
+@define-mixin font-size $size: $browser-context, $line: 1.5 {
+  font-size: strip-units($size)px;
+  font-size: calc((strip-units($size) / $browser-context))rem;
+  line-height: $line;
+}
+
+/*@function z($list, $element) {
+  $z-index: index($list, $element);
+  @if $z-index {
+      @return $z-index;
+  }
+  @warn 'There is no item "#{$element}" in this list; choose one of: #{$list}';
+  @return null;
+}
+
+@define-mixin z-index $element, $list:$elements {
+  z-index: z($list, $element);
+}*/

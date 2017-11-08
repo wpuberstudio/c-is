@@ -1,0 +1,43 @@
+{
+  "id": 1,
+  "title": "Sun Platinum",
+  "description": "Provided a full branding service through creating a business card, invitation card, web design, photo shooting and web development for the Tokyo based hair salon<br>Developed using SPA with Ajax load and elaborated animations to not lose the “suave” feeling<br>The whole website running seamlessly without a pagination",
+  "thumbnail": {
+    "title": "Sun Platinum",
+    "url": "/assets/images/posts/sun-platinum.jpg"
+  },
+  "images": [
+    {
+      "title": "logo",
+      "url": "/assets/images/posts/article/sun-platinum4.png",
+      "position": "center",
+      "size": "medium"
+    },
+    {
+      "title": "aaa",
+      "url": "/assets/images/posts/article/sun-platinum2.jpg",
+      "position": "center",
+      "size": "medium"
+    },
+    {
+      "title": "bbb",
+      "url": "/assets/images/posts/article/sun-platinum3.jpg",
+      "position": "center",
+      "size": "medium"
+    },
+    {
+      "title": "bbb",
+      "url": "/assets/images/posts/article/sun-platinum6.jpg",
+      "position": "left",
+      "size": "half"
+    },
+    {
+      "title": "bbb",
+      "url": "/assets/images/posts/article/sun-platinum7.jpg",
+      "position": "right",
+      "size": "half"
+    }
+  ],
+  "url": "http://sun-platinum.com",
+  "skillsets": "Photoshop, Illustrator, Kiev 88, HTML5, CSS3, Javascript, JQuery, Ajax, Instagram API"
+}

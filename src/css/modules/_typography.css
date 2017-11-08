@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'P22 Johnston Underground';
+  font-style: normal;
+  font-weight: normal;
+  src: url('/assets/fonts/Johnston-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'P22 Johnston Underground';
+  font-style: normal;
+  font-weight: bold;
+  src: url('/assets/fonts/Johnston-Bold.ttf') format('truetype');
+}

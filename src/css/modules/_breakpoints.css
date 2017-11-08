@@ -1,0 +1,19 @@
+@media only screen and (max-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+
+  body {
+    font-size: 20px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  html {
+    font-size: 12.9999999998px;
+  }
+
+  body {
+    font-size: 16px;
+  }
+}
