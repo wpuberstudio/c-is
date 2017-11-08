@@ -30,3 +30,5 @@ backup/*
 
 design
 design/*
+
+src/assets/js/config.js

@@ -4,7 +4,7 @@ import { TweenMax, Sine } from 'gsap';
 import Trigger from './Trigger';
 import Scroll from './Scroll';
 
-import config from './Config';
+import config from '../config';
 
 import Component from '../components/Component';
 import '../components/Home';
