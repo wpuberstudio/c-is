@@ -2,7 +2,9 @@ const path = require('path');
 const webpack = require('webpack');
 const AssetsPlugin = require('assets-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+// const HtmlWebpackInlineSourcePlugin = require('html-webpack-inline-source-plugin');
+const HTMLInlineCSSWebpackPlugin = require('html-inline-css-webpack-plugin').default;
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const globEntries = require('webpack-glob-folder-entries');
 const pkg = require('./package.json');
 
@@ -26,6 +28,7 @@ const HtmlWebpackPluginConfig = (globPath) => {
     const h = new HtmlWebpackPlugin({
       filename,
       inject: true,
+      // inlineSource: '.(js|css)$',
       template: `nunjucks-html-loader!${htmlPath}`,
     });
     htmlList.push(h);
@@ -90,11 +93,19 @@ const config = {
       minimize: !isDebug,
     }),
 
-    new ExtractTextPlugin({
+    // new ExtractTextPlugin({
+    //   filename: isDebug ? '[name].css?[hash]' : '[name].[hash].css',
+    // }),
+    
+    new MiniCssExtractPlugin({
       filename: isDebug ? '[name].css?[hash]' : '[name].[hash].css',
+      chunkFilename: "[id].css"
     }),
 
     ...HtmlWebpackPluginConfig('./src/template/pages/**/*'),
+
+    new HTMLInlineCSSWebpackPlugin(),
+    //new HtmlWebpackInlineSourcePlugin(),
   ],
 
   module: {
@@ -113,32 +124,59 @@ const config = {
           path.resolve(__dirname, './src/css'),
         ],
         exclude: /node_modules/,
-        use: ExtractTextPlugin.extract({
-          allChunks: true,
-          fallback : 'style-loader',
-          use: [
-            {
-              loader: 'css-loader',
-              options: {
-                url: false,
-                sourceMap: isDebug,
-                // importLoaders: 1,
-                modules: false,
-                localIdentName: isDebug ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
-                minimize: !isDebug,
+        use: [
+          isDebug ? {
+            loader: 'style-loader',
+          } : {
+            loader: MiniCssExtractPlugin.loader,
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              url: false,
+              sourceMap: isDebug,
+              // importLoaders: 1,
+              modules: false,
+              localIdentName: isDebug ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
+              minimize: !isDebug,
+            },
+          },
+          {
+            loader: 'postcss-loader',
+            options: {
+              ident: 'postcss',
+              config: {
+                path: './tools/postcss.config.js',
               },
             },
-            {
-              loader: 'postcss-loader',
-              options: {
-                ident: 'postcss',
-                config: {
-                  path: './tools/postcss.config.js',
-                },
-              },
-            },
-          ],
-        }),
+          },
+        ]
+        // use: ExtractTextPlugin.extract({
+        //   allChunks: true,
+        //   fallback : 'style-loader',
+        //   use: [
+        //     {
+        //       loader: 'css-loader',
+        //       options: {
+        //         url: false,
+        //         sourceMap: isDebug,
+        //         // importLoaders: 1,
+        //         modules: false,
+        //         localIdentName: isDebug ? '[name]-[local]-[hash:base64:5]' : '[hash:base64:5]',
+        //         minimize: !isDebug,
+        //       },
+        //     },
+        //     {
+        //       loader: 'postcss-loader',
+        //       options: {
+        //         ident: 'postcss',
+        //         config: {
+        //           path: './tools/postcss.config.js',
+        //         },
+        //       },
+        //     },
+        //   ],
+        // }),
       },
       {
         test: /\.html$|njk|nunjucks/,
