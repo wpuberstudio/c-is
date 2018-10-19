@@ -1,0 +1,123 @@
+.wrapper {
+  @media (max-width: 1060px) {
+    width: 1060px;
+  }
+}
+
+.main {
+  position: relative;
+  width: 100%;
+  padding-bottom: 0;
+
+  @media (max-width: 1060px) {
+    max-width: 1060px;
+  }
+}
+
+.content {
+  position: relative;
+  width: 100%;
+  z-index: 2;
+}
+
+.section {
+  /* padding: calc(var(--content-space) / 1.333) calc(var(--content-space) / 2.5); */
+  padding: var(--space-largest) var(--content-space) 0;
+  transition: transform 0.6s;
+  will-change: transform;
+
+  &__inner { padding-top: 0; }
+  &--hero { padding: 0; }
+  &--service-list { padding-top: var(--space-large); }
+}
+
+.page-title {
+  margin-bottom: 1.25rem;
+  letter-spacing: 0.125rem;
+  color: #fff;
+
+  .icon { margin-right: 16px; }
+}
+
+.page-header {
+  border-bottom: none;
+  margin-top: calc(var(--content-space) / 3);
+  margin-bottom: 16px;
+
+  &.is-with-border {
+    width: calc(100% - var(--content-space) * 2);
+    margin-right: auto;
+    margin-left: auto;
+    padding-bottom: calc(var(--content-space) / 1.333);
+    border-bottom: 1px solid var(--colour-border);
+  }
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  &--white {
+    background-color: #fff;
+    opacity: 0.6;
+  }
+
+  &--dark {
+    background-color: #000;
+    opacity: 0.6;
+  }
+
+  &--search {
+    background-color: #000;
+    opacity: 0.8;
+    z-index: 5;
+  }
+}
+
+.splited {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 17.5rem;
+  height: 17.5rem;
+  margin: auto;
+  border: 1px solid var(--colour-border);
+  border-radius: 50%;
+
+  &--small {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &--hero {
+    left: 1.666rem;
+    border-color: var(--colour-font);
+  }
+
+  &--about {
+    top: 11rem;
+    left: 4.125rem;
+  }
+
+  &--about-service {
+    left: 5rem;
+  }
+}
+
+[data-animation] {
+  /* transition: opacity 0.4s ease; */
+  opacity: 0;
+
+/*  &.is-animated { opacity: 1; }
+  &.is-loading { opacity: 0 !important; }*/
+}

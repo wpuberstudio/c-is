@@ -1,0 +1,30 @@
+::selection {
+	background: #FDF8F2;
+	color: #666;
+	text-shadow: none;
+}
+
+::-moz-selection {
+	background: #FDF8F2;
+	color: #666;
+	text-shadow: none;
+}
+
+::-webkit-selection {
+	background: #FDF8F2;
+	color: #666;
+	text-shadow: none;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #fff;
+}

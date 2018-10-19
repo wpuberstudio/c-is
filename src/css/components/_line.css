@@ -1,0 +1,40 @@
+.line {
+  position: absolute;
+  width: 1px;
+  height: 12.5rem;
+  background-color: var(--colour-border);
+  transform-origin: top;
+
+  &--horizontal {
+    width: 12.5rem;
+    height: 1px;
+    transform-origin: center;
+  }
+
+  &--about {
+    /* top: 14.2rem; */
+    left: 18rem;
+    bottom: -5.8rem;
+    height: 4.4rem;
+  }
+
+  &--service {
+    left: 31.4rem;
+    bottom: -9rem;
+    height: 12.5rem;
+  }
+
+  &--lead {
+    bottom: -10.8rem;
+    left: 17rem;
+    height: 13rem;
+  }
+
+  &--contact {
+    top: 9rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 320px;
+  }
+}

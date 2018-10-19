@@ -1,0 +1,123 @@
+.contact {
+  position: relative;
+  padding-bottom: var(--space-large);
+
+  &__inner {
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+    margin-top: var(--space-medium);
+    padding: 0;
+  }
+
+  &__accent-image {
+    position: absolute;
+    top: 0;
+    left: 14rem;
+    width: 20rem;
+    filter: grayscale(1); 
+    /*filter: grayscale(1) brightness(0.5) contrast(1.5); */
+  }
+
+  &__details {
+    display: flex;
+    justify-content: space-around;
+    position: absolute;
+    bottom: 2.3rem;
+    left: 0;
+  }
+
+  &__form {
+    width: 395px;
+    /* margin-left: 4rem; */
+    color: #fff;
+
+    p {
+      margin: 1.875rem 0;
+
+      &:first-child { margin-top: 0; }
+      &:last-child { margin-bottom: 0; }
+    }
+
+    form,
+    input,
+    textarea { width: 100%; }
+
+    input {
+      background-color: transparent;
+      border: none;
+      border-bottom: 1px solid #fff;
+      padding: 0 0 0.5rem;
+
+      &:hover { border-color: var(--colour-blue); }
+
+      &:focus {
+        outline: none;
+        border-color: var(--colour-blue-deep);
+      }
+    }
+
+    textarea {
+      margin-top: 0.5rem;
+      background-color: transparent;
+      border: 1px solid #fff;
+
+      &:hover { border-color: var(--colour-blue); }
+
+      &:focus {
+        outline: none;
+        border-color: var(--colour-blue-deep);
+      }
+    }
+  }
+
+  &__address {
+    margin-right: 3.6rem;
+    margin-bottom: 2rem;
+    font-size: var(--fsize-smallest);
+
+    a { text-decoration: underline; }
+  }
+
+  &__title {
+    position: relative;
+    /* float: right; */
+
+    &.is-animated p:nth-child(3)::before { width: 6rem; }
+
+    p {
+      position: relative;
+      z-index: 2;
+
+      &:nth-child(3) {
+        /* padding-left: 7.4rem; */
+        padding-left: 7.8rem;
+
+        &::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          height: 0.25rem;
+          margin: auto;
+          background-color: #fff;
+          transition: width 0.8s ease-out;
+          transition-delay: 0.6s;
+        }
+      }
+    }
+  }
+}
+
+.form {
+  &__submit {
+    position: relative;
+    border: none;
+    background-color: transparent;
+    color: var(--colour-main);
+    font-weight: 800;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,58 @@
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+
+  &__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+
+    video {
+      width: 100%;
+      height: 120%;
+      margin-top: -5%;
+    }
+  }
+
+  &__title {
+    opacity: 0;
+  }
+
+  &__inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    padding: 0 var(--content-space);
+    align-items: center;
+    z-index: 2;
+  }
+
+  &__menu {
+    position: absolute;
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-around;
+    bottom: 0;
+    left: 0;
+    padding: 2rem var(--content-space);
+    color: var(--colour-main);
+    font-size: var(--fsize-smaller);
+    font-weight: 800;
+    z-index: 3;
+  }
+
+  &__description {
+    margin: 0;
+  }
+
+  &__button {
+    position: relative;
+    text-transform: uppercase;
+  }
+}

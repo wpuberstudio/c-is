@@ -1,0 +1,32 @@
+.loader {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /*background-color: #000;*/
+  z-index: 999;
+  @apply --full-size;
+
+  canvas {
+    position: absolute;
+    backface-visibility: hidden;
+  }
+
+  img {
+    position: absolute;
+  }
+
+  &__image {
+    position: absolute;
+    z-index: 2;
+    @apply --full-size;
+  }
+
+  &__count {
+    position: relative;
+    font-size: 6rem;
+    font-family: var(--font-head);
+    color: #000;
+    z-index: 99999;
+  }
+}

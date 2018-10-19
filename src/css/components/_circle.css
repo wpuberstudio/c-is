@@ -1,0 +1,50 @@
+.circle {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 17.5rem;
+  height: 17.5rem;
+  margin: auto;
+  border: 1px solid var(--colour-border);
+  border-radius: 50%;
+
+  &--small {
+    width: 6rem;
+    height: 6rem;
+  }
+
+  &--hero {
+    left: 1.666rem;
+    border-color: var(--colour-font);
+  }
+
+  &--about {
+    top: 12.5rem;
+    left: 5.125rem;
+  }
+
+  &--service {
+    top: 4rem;
+    left: auto;
+    right: 0;
+  }
+
+  &--about-service {
+    left: 4.7rem;
+    z-index: -1;
+  }
+
+  &--work {
+    left: -8.7rem;
+  }
+
+  &--contact {
+    top: -7.5rem;
+    left: 4rem;
+  }
+
+  &--form {
+    left: -0.4rem;
+  }
+}

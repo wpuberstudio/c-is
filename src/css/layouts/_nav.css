@@ -1,0 +1,38 @@
+.navigation {
+  font-weight: 800;
+  font-size: var(--fsize-small);
+
+  a {
+    position: relative;
+    padding: var(--link-space) 0;
+
+    &:hover {
+      span::before {
+        width: 100%;
+      }
+    }
+  }
+
+  span {
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background-color: #fff;
+      overflow: hidden;
+      transition: width 0.4s ease;
+    }
+  }
+
+  &__item {
+    position: relative;
+    display: inline-block;
+    margin-left: 2rem;
+  }
+}
+
