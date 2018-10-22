@@ -230,6 +230,19 @@ export default class Page {
     }
   }
 
+  preloadVideo = () => (
+    new Promise((resolve) => {
+      const video = document.querySelector('.js-video');
+      if (video) {
+        video.addEventListener('canplaythrough', () => {
+          resolve();
+        }, false);
+      } else {
+        resolve();
+      }
+    })
+  )
+
   preLoad() {
     const loadingImages = imagesLoaded(this.$view.find('.js-preload').toArray(), { background: true });
     let images = [];
@@ -249,8 +262,12 @@ export default class Page {
       if (this.loadingImages.images.length > 0) {
         this.loadingImages.on('progress', (instance) => {
           const progress = Math.round((instance.progressedCount / instance.images.length) * 100);
-          this.loader.loaderOut(progress).then(() => { this.loader.loaderSet() });
+          this.loader.loaderProgress(progress);
         }).on('always', () => {
+          this.preloadVideo()
+            .then(this.loader.loaderOut())
+            .then(() => { this.loader.loaderSet() });
+
           $('body').removeClass('load-start').addClass('load-completed');
           resolve(true);
         });

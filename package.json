@@ -12,9 +12,7 @@
     "npm": ">=3.8"
   },
   "dependencies": {
-    "@types/gsap": "^1.19.2",
     "async": "^2.5.0",
-    "awesome-typescript-loader": "^5.0.0",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-polyfill": "^6.23.0",
     "babel-preset-stage-0": "^6.24.1",
@@ -35,8 +33,6 @@
     "postcss-each": "^0.10.0",
     "postcss-flexbugs-fixes": "^3.3.0",
     "postcss-loader": "^2.1.4",
-    "ts-loader": "^4.2.0",
-    "typescript": "^2.8.3",
     "webpack-glob-folder-entries": "^1.0.0",
     "yargs": "^8.0.2"
   },

@@ -3,7 +3,7 @@ import { TweenMax, Sine } from 'gsap';
 
 import DefaultPage from './DefaultPage';
 
-export default class About extends DefaultPage {
+export default class Services extends DefaultPage {
   constructor($view, options) {
     super($view);
 

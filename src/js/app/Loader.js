@@ -41,31 +41,31 @@ export default class Loader {
     });
   };
 
-  loaderOut = (amount) => {
+  loaderProgress = (amount) => {
     let val = amount || 100;
     val = (amount >= 100) ? 100 : amount;
-
-    return new Promise((resolve) => {
-      // TweenMax.killTweensOf('.js-loader-count');
+    if (val < 100) {
       $('.js-loader-count').text(val);
-
-
-      if (val >= 100) {
-        console.log(isInitialLoad);
-        if (isInitialLoad) this.loaderOutInitial(resolve);
-        else {
-          TweenMax.to('.js-loader', 0.6, {
-            autoAlpha: 0,
-            ease: Sine.easeIn,
-            delay: 0.8,
-            onComplete: () => {
-              $('.js-loader-count').text('0');
-            },
-          });
-        }
-      }
-    });
+    }
   };
+
+  loaderOut = () => (
+    new Promise((resolve) => {
+      // TweenMax.killTweensOf('.js-loader-count');
+      if (isInitialLoad) this.loaderOutInitial(resolve);
+      else {
+        TweenMax.to('.js-loader', 0.6, {
+          autoAlpha: 0,
+          ease: Sine.easeIn,
+          delay: 0.8,
+          onComplete: () => {
+            $('.js-loader-count').text('0');
+            resolve();
+          },
+        });
+      }
+    })
+  );
 
   loaderSet = () => {
     // TweenMax.set('.loader', { x: '-2%', rotationZ: 0 });

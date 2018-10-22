@@ -13,12 +13,14 @@ export default class Cursor extends Component {
 
     this.hoverElementsSelector = '.js-button-standard';
     this.lightElementsSelector = '.js-button-light, [data-theme="dark"]';
+    this.arrowElementsSelector = '.js-button-arrows';
     // this.darkElementsSelector = '.js-cursor-dark, [data-theme="light"]'
     // this.darkLeaveElementsSelector = '.js-cursor-dark-leave, [data-theme="light"] .js-cursor-light'
     // this.backAreaElementsSelector = '.js-back-area'
 
-    this.hoverElements = document.body.querySelectorAll(this.hoverElementsSelector)
-    this.lightElements = document.body.querySelectorAll(this.lightElementsSelector)
+    this.hoverElements = document.body.querySelectorAll(this.hoverElementsSelector);
+    this.lightElements = document.body.querySelectorAll(this.lightElementsSelector);
+    this.arrowElements = document.body.querySelectorAll(this.arrowElementsSelector);
     // this.darkElements = document.body.querySelectorAll(this.darkElementsSelector)
     // this.darkLeaveElements = document.body.querySelectorAll(this.darkLeaveElementsSelector)
     // this.backAreaElements = document.body.querySelectorAll(this.backAreaElementsSelector)
@@ -59,9 +61,14 @@ export default class Cursor extends Component {
       this.hoverElements[x].addEventListener('mouseleave', this.shrinkBound)
     }
 
-    for (var x = 0; x < this.lightElements.length; x++) {
+    for (let x = 0; x < this.lightElements.length; x++) {
       this.lightElements[x].addEventListener('mouseenter', this.lightBound)
       this.lightElements[x].addEventListener('mouseleave', this.darkBound)
+    }
+
+    for (let x = 0; x < this.arrowElements.length; x++) {
+      this.arrowElements[x].addEventListener('mouseenter', this.sliderModeOnBound)
+      this.arrowElements[x].addEventListener('mouseleave', this.sliderModeOffBound)
     }
 
     // for (var x = 0; x < this.darkElements.length; x++) {
@@ -96,6 +103,11 @@ export default class Cursor extends Component {
       this.lightElements[x].removeEventListener('mouseleave', this.darkBound)
     }
 
+    for (let x = 0; x < this.arrowElements.length; x++) {
+      this.arrowElements[x].removeEventListener('mouseenter', this.sliderModeOnBound)
+      this.arrowElements[x].removeEventListener('mouseleave', this.sliderModeOffBound)
+    }
+
     // for (var x = 0; x < this.darkElements.length; x++) {
     //   this.darkElements[x].removeEventListener('mouseenter', this.darkBound)
     // }
@@ -125,12 +137,19 @@ export default class Cursor extends Component {
       this.hoverElements[x].addEventListener('mouseleave', this.shrinkBound)
     }
 
-    // Light Cursor Areas
+    // // Light Cursor Areas
 
-    for (var x = 0; x < this.lightElements.length; x++) {
-      this.lightElements[x].addEventListener('mouseenter', this.lightBound)
-      this.lightElements[x].addEventListener('mouseleave', this.darkBound)
-    }
+    // for (let x = 0; x < this.lightElements.length; x++) {
+    //   this.lightElements[x].addEventListener('mouseenter', this.lightBound)
+    //   this.lightElements[x].addEventListener('mouseleave', this.darkBound)
+    // }
+
+    // // Arrow Cursor Areas
+
+    // for (let x = 0; x < this.lightElements.length; x++) {
+    //   this.lightElements[x].addEventListener('mouseenter', this.lightBound)
+    //   this.lightElements[x].addEventListener('mouseleave', this.darkBound)
+    // }
 
     // this.lightElements = document.body.querySelectorAll(this.lightElementsSelector)
 
@@ -213,34 +232,34 @@ export default class Cursor extends Component {
   }
 
   grow () {
-    Utils.setAttribute(this.cursor, 'arrows', false)
+    // Utils.setAttribute(this.cursor, 'arrows', false)
     Utils.setAttribute(this.cursor, 'expand', true)
   }
 
   shrink () {
-    Utils.setAttribute(this.cursor, 'arrows', false)
+    // Utils.setAttribute(this.cursor, 'arrows', false)
     Utils.setAttribute(this.cursor, 'expand', false)
   }
 
   light () {
-    Utils.setAttribute(this.cursor, 'arrows', false)
+    // Utils.setAttribute(this.cursor, 'arrows', false)
     Utils.setAttribute(this.cursor, 'light', true)
   }
 
   dark () {
+    // Utils.setAttribute(this.cursor, 'arrows', false)
+    Utils.setAttribute(this.cursor, 'light', false)
+  }
+
+  sliderModeOn () {
+    Utils.setAttribute(this.cursor, 'arrows', true)
+  }
+
+  sliderModeOff () {
     Utils.setAttribute(this.cursor, 'arrows', false)
-     Utils.setAttribute(this.cursor, 'light', false)
-   }
+  }
 
-   sliderModeOn () {
-     Utils.setAttribute(this.cursor, 'arrows', true)
-   }
-
-   sliderModeOff () {
-     Utils.setAttribute(this.cursor, 'arrows', false)
-   }
-
-   sliderDirection (dir = 'both') {
-     Utils.setAttribute(this.cursor, 'direction', dir)
-   }
+  sliderDirection (dir = 'both') {
+    Utils.setAttribute(this.cursor, 'direction', dir)
+  }
 }

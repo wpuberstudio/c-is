@@ -1,0 +1,105 @@
+.cursor {
+  position: fixed;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 3rem;
+  margin-left: -1.5rem;
+  margin-top: -1.5rem;
+  pointer-events: none;
+  transform: translateX(-100%);
+  z-index: 3;
+
+  &[data-expand=true] .cursor__disc {
+    transform: scale(2);
+    background: transparent;
+  }
+
+  &[data-light=true] .cursor__disc {
+    transform: scale(1.125);
+    background: transparent;
+  }
+
+  &[data-arrows=true] .cursor__arrows {
+    transform: scale(1);
+    background: transparent;
+  }
+
+  &[data-arrows=true]&[data-expand=false] .cursor__disc {
+    opacity: 0;
+  }
+
+  &[data-arrows=true]&[data-expand=true] {
+    .cursor__disc {
+      opacity: 1;
+      background: transparent;
+    }
+
+    .cursor__arrows { opacity: 0; }
+  }
+
+  &[data-direction=right] {
+    .cursor__arrow--left { opacity: 0; }
+    .cursor__arrow--right { width: 2rem; }
+  }
+
+  &[data-direction=left] {
+    .cursor__arrow--right { opacity: 0; }
+    .cursor__arrow--left { width: 2rem; }
+  }
+
+  &__disc {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transform: scale(.2);
+    transition: transform 1s var(--ease-out-circ);
+    will-change: transform;
+    background: #fff;
+    border-radius: 50%;
+  }
+
+  &__arrows {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 0.68rem;
+    transform: scale(0);
+    transition: transform 1s var(--ease-out-circ);
+    will-change: transform;
+
+    svg:first-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .polygon { fill: #fff; }
+  }
+
+  &__arrow {
+    height: 1rem;
+    font-size: 0;
+    overflow: hidden;
+    position: absolute;
+    margin-top: -0.5rem;
+    top: 50%;
+    transition: width .2s;
+    transition-timing-function: cubic-bezier(.47,0,.745,.715);
+    width: 1.2rem;
+    will-change: transform;
+
+    &--left { left: 0.5rem; }
+    &--right { right: 0.5rem; }
+  }
+}

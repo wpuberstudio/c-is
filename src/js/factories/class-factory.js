@@ -2,7 +2,7 @@ import $ from 'jquery';
 
 import DefaultPage from './../pages/DefaultPage';
 import HomePage from './../pages/Home';
-import AboutPage from './../pages/About';
+import ServicesPage from './../pages/Services';
 // import ErrorPage from './../pages/error-page';
 
 export default class ClassFactory {
@@ -12,8 +12,8 @@ export default class ClassFactory {
     switch(pageType) {
       case 'home':
         return new HomePage(page, pageType)
-      case 'about':
-        return new AboutPage(page, pageType)
+      case 'services':
+        return new ServicesPage(page, pageType)
       // case 'error-page':
       //   return new ErrorPage(page, pageType)
       default:

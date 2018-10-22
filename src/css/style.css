@@ -22,8 +22,9 @@
 @import 'layouts/_loader.css';
 
 /*COMPONENTS*/
-@import 'components/_carousel.css';
-@import 'components/_popup.css';
+/*@import 'components/_carousel.css';
+@import 'components/_popup.css';*/
+@import 'components/_cursor.css';
 @import 'components/_line.css';
 @import 'components/_circle.css';
 @import 'components/_hero.css';
