@@ -15,14 +15,6 @@ export default class Services extends DefaultPage {
     this.render();
   }
 
-  render() {
-    this.events();
-  }
-
-  events() {
-    $(window).on('scroll', this.parallax);
-  }
-
   parallax = () => {
     const scrolled = $(window).scrollTop();
     const secondContentOffset = this.$serviceDetail.offset().top;
@@ -35,5 +27,18 @@ export default class Services extends DefaultPage {
       this.counter += 1;
       TweenMax.to('.js-storyline', 0.1, { height: `${20 + (this.counter * 0.6)}%` });
     }
+  }
+
+  events() {
+    $(window).on('scroll', this.parallax);
+  }
+
+  destroy() {
+    super.destroy();
+    $(window).off('scroll', this.parallax);
+  }
+
+  render() {
+    this.events();
   }
 }

@@ -13,7 +13,7 @@ export default class Home extends DefaultPage {
     this.$view = $view;
     this.options = options;
     this.$listNav = $('.js-list-nav');
-    this.render();
+    // this.render();
   }
 
   handleScroll = () => {
@@ -87,6 +87,7 @@ export default class Home extends DefaultPage {
   }
 
   destroy() {
+    super.destroy();
     $(window).off('scroll', this.handleScroll);
     this.$view.find('.post__link').off('mouseover', this.postReveal);
     this.$view.find('.post__link').off('mouseleave', this.postHide);

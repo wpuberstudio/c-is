@@ -85,8 +85,8 @@ export default class Cursor extends Component {
     // }
   }
 
-  destroyEvents () {
-    // super.destroyEvents()
+  destroy () {
+    super.destroy();
 
     window.removeEventListener('mousemove', this.getInitialPosBound)
     window.removeEventListener('mousemove', this.getPosBound)

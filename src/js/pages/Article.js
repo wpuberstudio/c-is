@@ -12,6 +12,10 @@ export default class Article extends DefaultPage {
 
   events() {}
 
+  destroy() {
+    super.destroy();
+  }
+
   render() {
     this.events();
   }

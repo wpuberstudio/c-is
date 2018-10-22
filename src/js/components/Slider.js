@@ -20,13 +20,18 @@ export default class Slider extends Component {
     this.onDragStartBound = this.onDragStart.bind(this);
     this.onDragEndBound = this.onDragEnd.bind(this);
 
-    this.render();
     this.events();
   }
 
   events () {
     document.addEventListener('mousedown', this.onDragStartBound);
     document.addEventListener('mouseup', this.onDragEndBound);
+  }
+
+  destroy () {
+    super.destroy();
+    document.removeEventListener('mousedown', this.onDragStartBound);
+    document.removeEventListener('mouseup', this.onDragEndBound);
   }
 
   onSlide(event) {
@@ -96,8 +101,5 @@ export default class Slider extends Component {
 
   sliderDirection (dir = 'both') {
     Utils.setAttribute(this.cursor, 'direction', dir)
-  }
-
-  render() {
   }
 }

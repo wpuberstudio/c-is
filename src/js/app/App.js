@@ -9,10 +9,10 @@ import Animations from './Animations';
 import Loader from './Loader';
 
 import * as Components from '../components';
-import * as Templates from '../templates';
+// import * as Templates from '../templates';
 import model from './Models';
 import ClassFactory from '../factories/class-factory';
-import { isInitialLoad } from './globals';
+// import { isInitialLoad } from './globals';
 
 const classFactory = new ClassFactory();
 
@@ -25,6 +25,7 @@ export default class Page {
     this.$view = $('.main');
     this.components = [];
     this.templates = [];
+    this.page = null;
     this.model = model;
     this.loader = new Loader();
     this.animations = new Animations();
@@ -33,7 +34,7 @@ export default class Page {
   init() {
     TweenMax.set(window, { scrollTo: 0 });
     this.globalEvents();
-    this.loadComponent($('body'));
+    this.loadComponent();
 
     this.preLoad().then(() => {
       this.getPage();
@@ -61,69 +62,70 @@ export default class Page {
     });
   }
 
-  linkHover = ({ currentTarget }) => {
-    const $circle = $(currentTarget).find('.circle');
-    TweenMax.to($circle, 0.4, { css: { scale: 1.125, borderColor: '#ffffff' } });
-  };
+  // linkHover = ({ currentTarget }) => {
+  //   const $circle = $(currentTarget).find('.circle');
+  //   TweenMax.to($circle, 0.4, { css: { scale: 1.125, borderColor: '#ffffff' } });
+  // };
 
-  linkLeave = ({ currentTarget }) => {
-    const $circle = $(currentTarget).find('.circle');
-    TweenMax.to($circle, 0.4, { css: { scale: 1, borderColor: '#ffffff' } });
-  };
+  // linkLeave = ({ currentTarget }) => {
+  //   const $circle = $(currentTarget).find('.circle');
+  //   TweenMax.to($circle, 0.4, { css: { scale: 1, borderColor: '#ffffff' } });
+  // };
 
   getPage() {
     // if (jsWrapper === null) jsWrapper = document.getElementsByClassName('js-ajax-container')[0]
     const nameSpace = this.$view.data('namespace');
-    classFactory.getPageInstance(this.$view, nameSpace);
+    this.page = classFactory.getPageInstance(this.$view, nameSpace);
+    this.page.render();
     classFactory.setPageClass(this.$view);
   }
 
-  getTemplate(obj) {
-    const { load, name, $el, options } = obj;
+  // getTemplate(obj) {
+  //   const { load, name, $el, options } = obj;
 
-    return new Promise((resolve) => {
-      this.model.loadPost(name, load).then((data) => {
-        this.template = new Templates[name]($el, data, options);
-        const renderData = this.template.render();
-        this.templates.push(this.template);
-        resolve(renderData.v);
-      });
-    });
-  }
+  //   return new Promise((resolve) => {
+  //     this.model.loadPost(name, load).then((data) => {
+  //       this.template = new Templates[name]($el, data, options);
+  //       const renderData = this.template.render();
+  //       this.templates.push(this.template);
+  //       resolve(renderData.v);
+  //     });
+  //   });
+  // }
 
-  async loadTemplate() {
-    const templates = this.$view.find('[data-template]');
-    const $templates = templates.length > 0 ? templates : [];
+  // async loadTemplate() {
+  //   const templates = this.$view.find('[data-template]');
+  //   const $templates = templates.length > 0 ? templates : [];
 
-    const templateExe = (i) => {
-      const $template = $templates.eq(i);
-      const name = $template.data('template');
+  //   const templateExe = (i) => {
+  //     const $template = $templates.eq(i);
+  //     const name = $template.data('template');
 
-      if (Templates[name] !== undefined) {
-        const options = $template.data('options');
-        const load = $template.data('load') || '';
+  //     if (Templates[name] !== undefined) {
+  //       const options = $template.data('options');
+  //       const load = $template.data('load') || '';
 
-        this.getTemplate({
-          $el: $template, name, options, load,
-        }).then((data) => {
-          $template.html(data);
-          TweenMax.to($template, TIMING_IN, { opacity: 1 });
-        });
-      } else {
-        window.console.warn('There is no "%s" template!', name);
-      }
-    };
+  //       this.getTemplate({
+  //         $el: $template, name, options, load,
+  //       }).then((data) => {
+  //         $template.html(data);
+  //         TweenMax.to($template, TIMING_IN, { opacity: 1 });
+  //       });
+  //     } else {
+  //       window.console.warn('There is no "%s" template!', name);
+  //     }
+  //   };
 
-    return new Promise((resolve) => {
-      $templates.forEach(async (template, i) => {
-        await templateExe(i);
-      });
+  //   return new Promise((resolve) => {
+  //     $templates.forEach(async (template, i) => {
+  //       await templateExe(i);
+  //     });
 
-      resolve();
-    });
-  }
+  //     resolve();
+  //   });
+  // }
 
-  loadComponent($container) {
+  loadComponent($container = $('body')) {
     const $components = $container.find('[data-component]');
 
     for (let i = $components.length - 1; i >= 0; i -= 1) {
@@ -144,6 +146,7 @@ export default class Page {
   updatePage = ({ tempSlug }) => {
     this.$view = $('.main');
     this.setAnalytics(tempSlug);
+    this.getPage();
   };
 
   pageTransition = (event, back) => {
@@ -171,8 +174,7 @@ export default class Page {
         return this.preLoad();
       })
       .then(() => {
-        this.getPage();
-        this.loadComponent(this.$view.parent());
+        this.loadComponent();
         this.animations.animateIn();
         this.update();
       })
@@ -205,14 +207,15 @@ export default class Page {
 
   update() {
     Scroll.updateScroll();
-    this.callAll('resetElements');
+    // this.callAll('resetElements');
   }
 
   destroy() {
     this.callAll('destroy');
+    Scroll.destroyScroll();
+    this.page.destroy();
     this.components = [];
     this.templates = [];
-    Scroll.destroyScroll();
 
     TweenMax.killTweensOf(this.view);
 
@@ -224,7 +227,6 @@ export default class Page {
   callAll(fn, ...args) {
     for (const component of this.components) {
       if (typeof component[fn] === 'function') {
-        console.log(component[fn]);
         component[fn].apply(component, [].slice.call(arguments, 1));
       }
     }
