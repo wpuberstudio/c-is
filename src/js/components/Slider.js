@@ -12,9 +12,10 @@ export default class Slider extends Component {
     this.$view = $view;
     this.$items = $view.children();
     this.cursor = document.querySelector('.js-cursor');
+    this.x = 0;
     this.dragPoint = 0;
+    this.marginBetweenItems = null;
     this.margin = this.$view.width() - w.width;
-    this.initialSlidesPosition = [];
 
     this.onSlideBound = this.onSlide.bind(this);
     this.onDragStartBound = this.onDragStart.bind(this);
@@ -24,21 +25,32 @@ export default class Slider extends Component {
   }
 
   events () {
-    document.addEventListener('mousedown', this.onDragStartBound);
-    document.addEventListener('mouseup', this.onDragEndBound);
+    this.$view[0].addEventListener('mousedown', this.onDragStartBound);
+    this.$view[0].addEventListener('mouseup', this.onDragEndBound);
   }
 
   destroy () {
     super.destroy();
-    document.removeEventListener('mousedown', this.onDragStartBound);
-    document.removeEventListener('mouseup', this.onDragEndBound);
+    this.$view[0].removeEventListener('mousedown', this.onDragStartBound);
+    this.$view[0].removeEventListener('mouseup', this.onDragEndBound);
+  }
+
+  getMargin() {
+    const item1 = this.$items[0];
+    const item2 = this.$items[1]
+    const item1Pos = $(item1).offset().left + item1.clientWidth;
+    const item2Pos = $(item2).offset().left;
+    this.marginBetweenItems = (item2Pos - item1Pos) * 2;
   }
 
   onSlide(event) {
-    const x = event.clientX;
-    const value = x - (w.width / 2);
+    const x = event.clientX; // 10
+    // this.x = 500
+    // 
+    // const value = x - (w.width / 2);
+    const value = x - this.x + this.dragPoint;
 
-    if (x > this.dragPoint) {
+    if (x > this.x) {
       this.sliderDirection('left');
     } else {
       this.sliderDirection('right');
@@ -46,44 +58,48 @@ export default class Slider extends Component {
 
     TweenMax.killTweensOf(this.$view, { x: true });
     TweenMax.to(this.$view, 0.4, { x: value });
-    this.dragPoint = x;
+    // this.dragPoint = value;
   }
 
   onDragStart(event) {
-    const st = $(window).scrollTop();
-    const offsetTop = this.$view.offset().top - (this.$view.height() / 2);
-    const offsetBottom = offsetTop + ( this.$view.height() / 2 );
+    this.$items.removeClass('is-active');
 
-    if (st > offsetTop && st < offsetBottom ) {    
-      this.$items.removeClass('is-active');
-
-      const x = event.clientX;
-      if (x > this.dragPoint) {
-        this.sliderDirection('left');
-      } else {
-        this.sliderDirection('right');
-      }
-
-      window.addEventListener('mousemove', this.onSlideBound);
-
-      this.dragPoint = x;
+    this.x = event.clientX;
+    if (this.x > this.dragPoint) {
+      this.sliderDirection('left');
     } else {
-      window.removeEventListener('mousemove', this.onSlideBound);
+      this.sliderDirection('right');
     }
+
+    if (!this.marginBetweenItems) {
+      this.getMargin();
+    }
+
+    this.$view[0].addEventListener('mousemove', this.onSlideBound);
+
   }
 
   onDragEnd(event) {
     const x = event.clientX;
     const centre = w.width / 2;
+    const centreLeft = centre - this.marginBetweenItems;
+    const centreRight = centre + this.marginBetweenItems;
+    const value = x - this.x + this.dragPoint;
 
-    window.removeEventListener('mousemove', this.onSlideBound);
+    console.log({
+      centreLeft,
+      centreRight,
+      margin: this.marginBetweenItems,
+    })
+
+    this.$view[0].removeEventListener('mousemove', this.onSlideBound);
     this.sliderDirection('both');
 
     this.$items.each((index, element) => {
       const $element = $(element);
       const offsetLeft = $element.offset().left;
       const offsetRight = offsetLeft + $element.width();
-      if (offsetLeft < centre && centre < offsetRight) {
+      if (offsetLeft > centreLeft && centreRight > offsetRight) {
         this.$items.removeClass('is-active');
         $element.addClass('is-active');
       }
@@ -96,7 +112,7 @@ export default class Slider extends Component {
     //   }
     // })
 
-    this.dragPoint = x;
+    this.dragPoint = value;
   }
 
   sliderDirection (dir = 'both') {

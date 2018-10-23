@@ -19,10 +19,11 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    width: calc(100% + 20rem + var(--content-space) * 2);
+    width: calc(100% + 20rem + 200vw);
     height: 368px;
     margin-top: var(--space-large);
-    margin-left: -var(--content-space);
+    margin-left: -100vw;
+    padding: 0 80vw;
     transform: translateX(-10rem);
 
     &::before {
