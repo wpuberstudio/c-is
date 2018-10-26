@@ -33,6 +33,7 @@ const HtmlWebpackPluginConfig = (globPath) => {
     });
     htmlList.push(h);
   }
+
   return htmlList;
 };
 
@@ -102,7 +103,7 @@ const config = {
       chunkFilename: "[id].css"
     }),
 
-    ...HtmlWebpackPluginConfig('./src/template/pages/**/*'),
+    ...HtmlWebpackPluginConfig('./src/template/pages/**/*.html'),
 
     new HTMLInlineCSSWebpackPlugin(),
     //new HtmlWebpackInlineSourcePlugin(),

@@ -12,21 +12,21 @@ export default class Loader {
     this.$view = $('.main');
   }
 
-  loaderOutInitial = (resolve) => {
-    setTimeout(() => {
-      const $container = $('.js-loader');
-      TweenMax.to('.js-loader-count', 0.6, { opacity: 0 });
+  // loaderOutInitial = (resolve) => {
+  //   setTimeout(() => {
+  //     const $container = $('.js-loader');
+  //     TweenMax.to('.js-loader-count', 0.6, { opacity: 0 });
 
-      const callback = (() => {
-        TweenMax.set('.js-loader', { autoAlpha: 0 });
-        $('.js-loader-count').text('0');
-        TweenMax.to('#wrapper', 0.6, { opacity: 1 });
-        resolve();
-      });
-      const loaderEffect = new LoaderEffect($container, callback);
-      loaderEffect.init();
-    }, 500);
-  };
+  //     const callback = (() => {
+  //       TweenMax.set('.js-loader', { autoAlpha: 0 });
+  //       $('.js-loader-count').text('0');
+  //       TweenMax.to('#wrapper', 0.6, { opacity: 1 });
+  //       resolve();
+  //     });
+  //     const loaderEffect = new LoaderEffect($container, callback);
+  //     loaderEffect.init();
+  //   }, 500);
+  // };
 
   loaderIn = () => {
     return new Promise((resolve) => {
@@ -46,26 +46,37 @@ export default class Loader {
     val = (amount >= 100) ? 100 : amount;
     if (val < 100) {
       $('.js-loader-count').text(val);
+      TweenMax.killTweensOf('.js-loader-line', { width: true });
+      TweenMax.to('.js-loader-line', 0.3, { width: `${val}%` });
     }
   };
 
   loaderOut = () => (
     new Promise((resolve) => {
       // TweenMax.killTweensOf('.js-loader-count');
-      if (isInitialLoad) this.loaderOutInitial(resolve);
-      else {
-        TweenMax.to('.js-loader', 0.6, {
-          autoAlpha: 0,
-          ease: Sine.easeIn,
-          delay: 0.8,
-          onComplete: () => {
-            $('.js-loader-count').text('0');
-            resolve();
-          },
-        });
-      }
+      $('.js-loader-count').text('100');
+      TweenMax.killTweensOf('.js-loader-line', { width: true });
+      TweenMax.set('.js-loader-line', { width: `100%` });
+
+      TweenMax.to('.js-loader', 0.6, {
+        autoAlpha: 0,
+        ease: Sine.easeIn,
+        delay: 0.8,
+        onComplete: () => {
+          this.loaderReset();
+          resolve();
+        },
+      });
+      // if (isInitialLoad) this.loaderOutInitial(resolve);
+      // else {
+      // }
     })
   );
+
+  loaderReset = () => {
+    $('.js-loader-count').text('0');
+    TweenMax.set('.js-loader-line', { width: `0%` });
+  }
 
   loaderSet = () => {
     // TweenMax.set('.loader', { x: '-2%', rotationZ: 0 });

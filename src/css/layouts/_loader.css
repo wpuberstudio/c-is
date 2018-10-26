@@ -3,7 +3,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /*background-color: #000;*/
+  background-color: #000;
   z-index: 999;
   @apply --full-size;
 
@@ -24,9 +24,32 @@
 
   &__count {
     position: relative;
+    display: block;
+    /*margin-bottom: 1rem;*/
     font-size: 6rem;
     font-family: var(--font-head);
-    color: #000;
+    text-align: center;
+    color: #fff;
     z-index: 99999;
+  }
+
+  &__container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    width: 40%;
+    height: 2px;
+    margin: auto;
+    transform: translateY(-50%);
+    line-height: 0;
+  }
+
+  &__line {
+    display: inline-block;
+    width: 0;
+    height: 100%;
+    margin: auto;
+    background-color: #fff;
   }
 }

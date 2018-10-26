@@ -26,7 +26,6 @@ export default class Scroll extends Hanlder {
   constructor(props) {
     super(props);
     this.cache = {};
-    this.render();
   }
 
   render() {

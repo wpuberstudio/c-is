@@ -31,10 +31,23 @@
   }
 
   &--contact {
-    top: 9rem;
+    top: 12rem;
     right: 0;
     left: 0;
     margin: auto;
     width: 320px;
+  }
+
+  &--single-gallery {
+    top: 7rem;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 320px;
+  }
+
+  &--single-next {
+    bottom: 6.7rem;
+    left: calc(var(--content-space) + var(--grid-space));
   }
 }

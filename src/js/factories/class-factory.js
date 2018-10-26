@@ -3,6 +3,7 @@ import $ from 'jquery';
 import DefaultPage from './../pages/DefaultPage';
 import HomePage from './../pages/Home';
 import ServicesPage from './../pages/Services';
+import SinglePage from './../pages/Single';
 // import ErrorPage from './../pages/error-page';
 
 export default class ClassFactory {
@@ -14,6 +15,8 @@ export default class ClassFactory {
         return new HomePage(page, pageType)
       case 'services':
         return new ServicesPage(page, pageType)
+      case 'single':
+        return new SinglePage(page, pageType)
       // case 'error-page':
       //   return new ErrorPage(page, pageType)
       default:

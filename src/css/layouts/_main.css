@@ -12,6 +12,10 @@
   @media (max-width: 1060px) {
     max-width: 1060px;
   }
+
+  &--single {
+    padding-bottom: var(--space-large);
+  }
 }
 
 .content {
@@ -28,7 +32,8 @@
 
   &__inner { padding-top: 0; }
   &--hero { padding: 0; }
-  &--service-list { padding-top: var(--space-large); }
+  &--single-top { padding: 0; }
+  &--service-list { padding-top: var(--space-larger); }
 }
 
 .page-title {

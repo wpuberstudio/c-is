@@ -36,7 +36,7 @@
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div class="grids">
+    <div class="util-grids">
       <div class="grid"></div>
       <div class="grid"></div>
       <div class="grid"></div>
@@ -51,9 +51,18 @@
       <div class="grid"></div>
     </div>
 
+    <div class="util-control">
+      <span class="util-control__title">utils:</span>
+      <input class="util-grid-controller" id="util-grid-controller" type="checkbox">
+      <label for="util-grid-controller">Grid</label>
+    </div>
+
     <div id="loader" class="loader js-loader">
       <span class="loader__count js-loader-count">0</span>
-      <img src="/assets/images/loader-image.jpg" alt="">
+      <div class="loader__container">
+        <span class="loader__line js-loader-line"></span>
+      </div>
+      <!-- <img src="/assets/images/loader-image.jpg" alt=""> -->
     </div>
 
     <div class="cursor js-cursor" data-light="false" data-expand="false" data-arrows="false" data-direction="null" data-hidden="false" data-back="false" data-component="Cursor">

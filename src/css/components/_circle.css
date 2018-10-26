@@ -47,4 +47,23 @@
   &--form {
     left: -0.4rem;
   }
+
+  &--single-desc {
+    left: var(--grid-space);
+  }
+
+  &--skillset {
+    left: auto;
+    right: -2.5rem;
+  }
+
+  &--single-gallery {
+    right: -3rem;
+    left: auto;
+  }
+
+  &--single-next {
+    top: 2rem;
+    left: -1.6rem;
+  }
 }

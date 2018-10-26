@@ -40,6 +40,7 @@ export default class Page {
       this.getPage();
       this.trigger = new Trigger();
       this.scroll = new Scroll();
+      this.scroll.render();
 
       // just for refreshed page.
       // isInitialLoad = false;
@@ -207,6 +208,7 @@ export default class Page {
 
   update() {
     Scroll.updateScroll();
+    Scroll.scroll.render();
     // this.callAll('resetElements');
   }
 
@@ -267,18 +269,20 @@ export default class Page {
           this.loader.loaderProgress(progress);
         }).on('always', () => {
           this.preloadVideo()
-            .then(this.loader.loaderOut())
-            .then(() => { this.loader.loaderSet() });
+            .then(this.loader.loaderOut)
+            .then(() => {
+              this.loader.loaderSet()
+              resolve(true);
+            });
 
+            $('body').removeClass('load-start').addClass('load-completed');
+        });
+      } else {
+        this.loader.loaderOut().then(() => {
+          this.loader.loaderSet();
           $('body').removeClass('load-start').addClass('load-completed');
           resolve(true);
         });
-      } else {
-        // this.loader.loaderOut(100).then(() => {
-        //   this.loader.loaderSet();
-        //   $('body').removeClass('load-start').addClass('load-completed');
-        //   resolve(true);
-        // });
       }
     });
   }

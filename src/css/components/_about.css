@@ -28,15 +28,25 @@
 
   &__image {
     position: absolute;
-    top: 6.666rem;
-    /* right: 0; */
+    top: 0;
     right: -13.8rem;
     width: 100%;
-    filter: grayscale(1) brightness(0.3);
+    filter: grayscale(1) contrast(1.05);
     z-index: -1;
 
     img { width: 100%; }
   }
+
+/*  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0 var(--content-space);
+    text-align: center;
+
+    img { width: 100%; }
+  }*/
 
   &__button-container {
     margin-top: 3.5rem;
@@ -56,14 +66,15 @@
 .service-list {
   &__title {
     position: relative;
+    margin-top: 6rem;
     margin-bottom: 3rem;
-    padding-right: 2.5rem;
-    text-align: right;
+    /*padding-right: 2.5rem;*/
+    text-align: center;
 
-    p {
+    /*p {
       &:nth-child(1) { padding-right: 9.3rem; }
       &:nth-child(3) { padding-right: 5.8rem; }
-    }
+    }*/
   }
 
   &__inner {

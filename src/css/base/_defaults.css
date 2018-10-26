@@ -101,23 +101,6 @@ ul {
   @apply --full-size;
 }
 
-.grids {
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  display: none;
-  justify-content: space-between;
-  width: 1280px;
-  height: 100%;
-
-  .grid {
-    width: 64px;
-    height: 100%;
-    background-color: #ccc;
-  }
-}
-
 .js-button-standard {
   position: relative;
   padding: 1rem;
@@ -156,41 +139,8 @@ ul {
   }
 }
 
-.cursor {
-  position: fixed;
-  display: block;
-  top: 0;
-  left: 0;
-  width: 3rem;
-  height: 3rem;
-  margin-left: -1.5rem;
-  margin-top: -1.5rem;
-  pointer-events: none;
-  transform: translateX(-100%);
-  z-index: 3;
-
-  &[data-expand=true] .cursor__disc {
-    transform: scale(2);
-    background: transparent;
-  }
-
-  &[data-light=true] .cursor__disc {
-    transform: scale(1.125);
-    background: transparent;
-  }
-
-  &__disc {
-    width: 100%;
-    height: 100%;
-    transform: scale(.2);
-    transition: transform 1s var(--ease-out-circ);
-    will-change: transform;
-    background: #fff;
-    border-radius: 50%;
-  }
-}
-
 :--heading {
+  position: relative;
   margin-top: 0;
   font-weight: 400;
   font-family: var(--font-head);

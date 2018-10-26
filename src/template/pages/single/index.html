@@ -1,0 +1,92 @@
+{% block pageid %}single{% endblock %}
+{% block title %}single{% endblock %}
+
+{% extends 'layout/_layout.html' %}
+
+{% block content %}
+<main class="main main--single" id="main" role="main" data-page="Single" data-namespace="single">
+  <article class="content content--single">
+    <section class="section section--single-top single-top">
+      <div class="single-top__inner">      
+        <h1 class="single-top__title js-title" data-animation="splitText" data-timing="0.8"><p>Sun Platinum</p></h1>
+        <div class="single-top__image" data-animation="fadeUp">
+          <img class="js-preload" src="/assets/images/work/sun-platinum.jpg" alt="">
+        </div>
+        <div class="single-top__shadow" data-animation="fadeLeft">
+          <img class="js-preload" src="/assets/images/work/sun-platinum.jpg" alt="">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--single-desc single-desc">
+      <h2 class="single-desc__title js-title" data-animation="splitText" data-timing="0.8">
+        <p>Project</p>
+        <p>Overview</p>
+        <span class="circle circle--single-desc"></span>
+      </h2>
+
+      <div class="single-desc__desc" data-animation="fadeRight" data-timing="1.2" data-delay="0.8">
+        <p>Since we’ve been creating the finest stories as much as we can do, we are assured that you’ ll have a great piece that everyone in the world would be content. We create cherished and intuitive websites that people love to use.</p>
+        <p>Since we’ve been creating the finest stories as much as we can do, we are assured that you’ ll have a great piece that everyone in the world would be content. We create cherished and intuitive websites that people love to use.</p>
+        <div class="single-desc__categories">
+          <span class="single-desc__category">print design</span>
+          <span class="single-desc__category">web design</span>
+        </div>
+      </div>
+
+      <div class="single-desc__skillset" data-animation="fadeRight" data-timing="1.2" data-delay="0.8">
+        <h3 class="single-desc__title">
+          <span>SKILLSETS</span>
+          <span class="circle circle--small circle--skillset"></span>
+        </h3>
+        <p>Photoshop, Illustrator, Kiev 88, HTML5, CSS3, Javascript, JQuery, Ajax, Instagram API</p>
+      </div>
+
+<!--       <div class="single-desc__image"">
+        <img class="js-preload" src="/assets/images/single/image-sub.jpg" alt="Lead">
+      </div> -->
+    </section>
+
+    <section class="section section--single-gallery single-gallery">
+      <span class="line line--horizontal line--single-gallery" data-animation="growX"></span>
+
+      <div class="single-gallery__image" data-animation="fadeUp">
+        <img class="js-preload" src="/assets/images/single/image1.png" alt="">
+      </div>
+      <div class="single-gallery__image" data-animation="fadeUp">
+        <img class="js-preload" src="/assets/images/single/image2.jpg" alt="">
+      </div>
+
+      <div class="u-text-right">
+        <a class="single-gallery__button js-button-standard js-ajax-trigger" href="/work">
+          <span class="button-inner">
+            <span class="circle circle--small circle--single-gallery"></span>
+            <span>See Othre work</span>
+          </span>
+        </a>
+      </div>
+    </section>
+
+    <section class="section section--single-next single-next">
+      <h2 class="single-next__title js-title" data-animation="splitText" data-timing="0.8">
+        <p>Next</p>
+        <p>Project</p>
+        <span class="circle circle--single-next"></span>
+      </h2>
+
+      <span class="line line--horizontal line--single-next" data-animation="growX"></span>
+
+      <div class="single-next__item">
+        <h2 class="single-next__name js-title" data-animation="splitText" data-timing="0.8"><p>ADK Recruit</p></h2>
+        <div class="single-next__image" data-animation="fadeUp">
+          <img class="js-preload" src="/assets/images/single/image-next.jpg" alt="">
+        </div>
+      </div>
+    </section>
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

@@ -47,13 +47,11 @@
     height: 200px;
     background-color: var(--colour-bg);
     z-index: 2;
-    pointer-events: none;
     transition: width 0.6s ease, height 0.6s ease;
 
     &.is-active {
       width: 597px;
       height: 368px;
-      pointer-events: auto;
 
       img {
         position: relative;
@@ -93,6 +91,14 @@
       }*/
     }
   }
+
+/*  &__link {
+    @apply --hide;
+
+    .is-active & {
+      @apply --show;
+    }
+  }*/
 
   &__name {
     position: relative;
