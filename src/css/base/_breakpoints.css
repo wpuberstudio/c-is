@@ -19,7 +19,9 @@
 
 }
 @media only screen and (min-width: 1440px) {
-
+  body {
+    font-size: 18px;
+  }
 }
 @media only screen and (min-width: 1620px) {
 }

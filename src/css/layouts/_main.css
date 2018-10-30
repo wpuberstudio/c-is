@@ -26,12 +26,17 @@
 
 .section {
   /* padding: calc(var(--content-space) / 1.333) calc(var(--content-space) / 2.5); */
+  max-width: var(--content-width);
+  margin: auto;
   padding: var(--space-largest) var(--content-space) 0;
   transition: transform 0.6s;
   will-change: transform;
 
-  &__inner { padding-top: 0; }
-  &--hero { padding: 0; }
+  &--hero {
+    max-width: none;
+    padding: 0;
+  }
+
   &--single-top { padding: 0; }
   &--service-list { padding-top: var(--space-larger); }
 }

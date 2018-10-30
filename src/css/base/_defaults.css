@@ -7,6 +7,7 @@
 
 html {
   font-size: 16px;
+  overflow-x: hidden;
 
   /* font-size: responsive 12px 21.5px;
   font-range: 1240px 1920px; */

@@ -123,5 +123,15 @@
     top: calc(50% - 1.25rem);
     left: -var(--grid-space);
     z-index: 3;
+    pointer-events: none;
+  }
+
+  &__image {
+    filter: grayscale(1);
+    transition: filter 0.4s ease;
+
+    .single-next__item:hover & {
+      filter: grayscale(0);
+    }
   }
 }
