@@ -29,6 +29,10 @@ export default class DefaultPage extends Handler {
   destroyEvents() {
   }
 
+  render() {
+    
+  }
+
   preLoad() {
     const loadingImages = imagesLoaded(this.$view.find('.js-preload').toArray(), { background: true });
     let images = [];

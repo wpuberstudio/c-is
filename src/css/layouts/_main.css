@@ -2,6 +2,10 @@
   @media (max-width: 1060px) {
     width: 1060px;
   }
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
 }
 
 .main {
@@ -32,13 +36,23 @@
   transition: transform 0.6s;
   will-change: transform;
 
+  @media (max-width: 768px) {
+    padding: var(--space-largest) var(--content-space--mobile) 0;
+  }
+
   &--hero {
     max-width: none;
     padding: 0;
   }
 
   &--single-top { padding: 0; }
-  &--service-list { padding-top: var(--space-larger); }
+  &--service-list,
+  &--work {
+    padding-top: var(--space-larger);
+    @media (max-width: 768px) {
+      padding-top: 3.33rem;
+    }
+  }
 }
 
 .page-title {

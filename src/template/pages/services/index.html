@@ -1,0 +1,136 @@
+{% block pageid %}services{% endblock %}
+{% block title %}services{% endblock %}
+
+{% extends 'layout/_layout.html' %}
+
+{% block content %}
+<main class="main main--services" id="main" role="main" data-page="Services" data-namespace="services">
+  <article class="content content--services">
+    <section class="section section--services services-intro">
+      <div class="u-inner">      
+        <div class="services-intro__titles">
+          <h1 class="services-intro__title js-title" data-animation="splitText" data-timing="0.8">
+            <p>Idea dispatch</p>
+            <p>from here</p>
+            <span class="circle circle--services-intro"></span>
+          </h1>
+          <h2 class="services-intro__subtitle" data-animation="fadeUp" deta-delay="2">Our services</h2>
+        </div>
+
+        <div class="services-intro__image" data-parallax="125">
+          <img src="{{ image_path }}/services/image1.png" alt="">
+        </div>
+
+        <div class="services-intro__text">
+          <div class="services-intro__inner" data-animation="fadeUp">
+            <p>We focus on branding design including both web and graphic. We shall take hands to make good brand plans and set a goal together.</p>
+            <strong>Make new paradigm</strong>
+            <p>If you are a start-up, we can start with creating a logo and business card. Further more, we make original mug cups or stationaries. We’ll be your brilliant company to set up an unique and fun brand together.</p>
+          </div>
+          <div class="services-intro__inner" data-animation="fadeUp">
+            <p>Have you got so many brilliant ideas, but don’t know how to experess them effectively?</p>
+            <strong>Let’s crack on then accelerate it.</strong>
+            <p>We can help you to set the ideas to be ready and make a brilliant kick-off. There are several ways to achieve a goal and we adjust the process depending on what/how you need. Let’s have a talk about how we can improve your brand using the following 6 fundamental ways of enhancement.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section--services services-middle">
+      <div class="services-middle__image">
+        <img src="{{ image_path }}/services/six-ways.png" alt="">
+      </div>
+    </section>
+
+    <section class="section section--services services-outro">
+      <div class="u-inner">
+        
+        <div class="services-outro__head">
+          <div class="services-outro__image" data-parallax="125">
+            <img src="{{ image_path }}/services/image2.png" alt="">
+          </div>
+          <h3 class="services-outro__title js-title" data-animation="splitText" data-timing="0.8">
+            <p>We can boost</p>
+            <p class="sub">Your business</p>
+            <span class="circle circle--services-outro"></span>
+          </h3>
+          <div class="services-outro__text" data-animation="fadeUp">
+            <p>Have a look at the 6 ways of boost. We’ve been involved in designing brands and creating identities. We do not work within boundaries and the more you share your ideas with us, the more effective we can be.</p>
+
+            <p>When we say we’re a full branding/design service agency, we mean it. Even if you need the thing which is not on the list, let’s talk about it first.</p>
+          </div>
+        </div>
+
+        <div class="services-outro__desc">
+          <h4 class="services-outro__subtitle" data-animation="fadeRight">
+            <strong>Branding</strong>
+            <span>Design</span>
+            <span class="circle circle--small circle--services-branding"></span>
+          </h4>
+
+          <div class="services-outro__desc-inner" data-animation="fadeRight" data-delay="0.2">
+            <p>Produce and deliver exceptional branding tools from the beginning to the end that are tailored to your company's brand guidelines</p>
+
+            <p>Provide the brand guidelines that define the set of standards for your business which will help you to figure out what your brand really is and how you can improve it in the future.</p>
+          </div>
+        </div>
+
+<!--         <div class="services-outro__thumbnail">
+          <img src="" alt="">
+        </div> -->
+
+        <div class="services-map">
+          <div class="services-map__list">
+            <div class="services-map__item">
+              <h5 class="services-map__title" data-animation="fadeUp">
+                Web design
+                <span class="circle circle--small circle--services-item"></span>
+              </h5>
+              <div class="services-map__desc" data-animation="fadeUp" data-delay="0.2">Specialise unique design and well-constructed, creative web animations</div>
+            </div>
+
+            <div class="services-map__item">
+              <h5 class="services-map__title" data-animation="fadeUp">
+                Print media
+                <span class="circle circle--small circle--services-item-alt"></span>
+              </h5>
+              <div class="services-map__desc" data-animation="fadeUp" data-delay="0.2">Business cards, brochures, flyers and your coffee mug - We produce conceptually unique products to help enhancing your brand identity</div>
+            </div>
+
+            <div class="services-map__item">
+              <h5 class="services-map__title" data-animation="fadeUp">
+                Web development
+                <span class="circle circle--small circle--services-item"></span>
+              </h5>
+              <div class="services-map__desc" data-animation="fadeUp" data-delay="0.2">Build easy-to-use interfaces and high-performance responsive, interactive websites</div>
+            </div>
+
+            <div class="services-map__item">
+              <h5 class="services-map__title" data-animation="fadeUp">
+                CMS & E-commerce
+                <span class="circle circle--small circle--services-item"></span>
+              </h5>
+              <div class="services-map__desc" data-animation="fadeUp" data-delay="0.2">Provide you easy-to-use CMS such as WordPress and Magento to improve your business methods with a continuous management support</div>
+            </div>
+
+            <div class="services-map__item">
+              <h5 class="services-map__title" data-animation="fadeUp">
+                SEO
+                <span class="circle circle--small circle--services-item-alt"></span>
+              </h5>
+              <div class="services-map__desc" data-animation="fadeUp" data-delay="0.2">Work closely with your team to help achieving your visions and provide site optimisations using analytics to boost the business even more</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    {% include 'components/_contact.html' %}
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

@@ -2,9 +2,9 @@
 .u-right { float: right; }
 
 .u-inner {
+  position: relative;
   max-width: var(--content-width);
   margin: auto;
-  padding: 0 8.5em;
 }
 
 .u-inner-middle { top: center; }

@@ -1,5 +1,9 @@
-.work {
+.work-home {
   position: relative;
+
+  @media (max-width: 768px) {
+    margin-top: 6.666rem;
+  }
 
   &__inner { position: relative; }
 
@@ -26,6 +30,12 @@
     padding: 0 80vw;
     transform: translateX(-10rem);
 
+    @media (max-width: 768px) {
+      width: calc(100% + 500vw - 15.5rem);
+      height: auto;
+      margin-left: -250vw;
+    }
+
     &::before {
       content: '';
       position: absolute;
@@ -49,15 +59,30 @@
     z-index: 2;
     transition: width 0.6s ease, height 0.6s ease;
 
+    &:not(.is-active) {
+      pointer-events: none;
+    }
+
     &.is-active {
       width: 597px;
       height: 368px;
 
+      @media (max-width: 768px) {
+        width: 80vw;
+        height: auto;
+      }
+
       img {
         position: relative;
-        width: 100%;
-        height: auto;
+        width: auto;
+        min-height: 100%;
         z-index: 2;
+
+        @media (max-width: 768px) {
+          width: 100%;
+          height: auto;
+          min-height: 0;
+        }
       }
 
       /*&::before,
@@ -102,12 +127,18 @@
 
   &__name {
     position: relative;
+    display: inline-block;
     margin: 0;
-    margin-left: -4rem;
-    font-size: 5rem;
+    margin-left: -5rem;
+    font-size: 5.5rem;
+    line-height: 1.125;
     z-index: 4;
-    pointer-events: none;
     @apply --hide;
+    /* font-size: 5rem; */
+
+    @media (max-width: 768px) {
+      position: absolute;
+    }
 
     .is-active & {
       @apply --show;
@@ -126,10 +157,12 @@
     transition: opacity 0.6s ease, filter 0.6s ease;
     @apply --full-size;
 
-    .is-active & {
-      opacity: 1;
-      filter: grayscale(0);
+    @media (max-width: 768px) {
+      position: relative;
+      height: auto;
     }
+
+    .is-active & { opacity: 1; }
 
     img { height: 100%; }
   }
@@ -145,5 +178,81 @@
     left: 0.5rem;
     width: 46rem;
     filter: grayscale(1); 
+  }
+}
+
+.work {
+  margin-bottom: 5rem;
+
+  @media (max-width: 768px) {
+    padding-top: 7rem;
+  }
+
+  &__title {
+    height: 0;
+    overflow: hidden;
+
+    @apply --hide;
+
+    @media (max-width: 768px) {
+      height: auto;
+      @apply --show;
+    }
+  }
+
+  &__list {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    @media (max-width: 768px) {
+      padding-top: 5rem;
+    }
+  }
+
+  &__item {
+    position: relative;
+    width: 44%;
+    margin-top: 5rem;
+
+    @media (max-width: 768px) {
+      width: 80%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    &:nth-child(even) {
+      margin-top: 10rem;
+    }
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:nth-child(2) {
+      margin-top: 5rem;
+    }
+
+  }
+
+  &__text {
+    margin-top: 4rem;
+    margin-left: -var(--gutter-space);
+    width: 20.5rem;
+    z-index: 2;
+  }
+
+  &__image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    filter: grayscale(1);
+    opacity: 0.5;
+    transition: filter 0.8s ease;
+
+    img { width: 100%; }
+    .work__item:hover & { filter: grayscale(0); }
   }
 }

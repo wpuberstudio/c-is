@@ -4,6 +4,7 @@ import DefaultPage from './../pages/DefaultPage';
 import HomePage from './../pages/Home';
 import ServicesPage from './../pages/Services';
 import SinglePage from './../pages/Single';
+import WorkPage from './../pages/Work';
 // import ErrorPage from './../pages/error-page';
 
 export default class ClassFactory {
@@ -17,6 +18,8 @@ export default class ClassFactory {
         return new ServicesPage(page, pageType)
       case 'single':
         return new SinglePage(page, pageType)
+      case 'work':
+        return new WorkPage(page, pageType)
       // case 'error-page':
       //   return new ErrorPage(page, pageType)
       default:

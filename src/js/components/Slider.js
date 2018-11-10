@@ -62,6 +62,10 @@ export default class Slider extends Component {
   }
 
   onDragStart(event) {
+    if (event.target !== event.currentTarget) {
+      return false;
+    }
+
     this.$items.removeClass('is-active');
 
     this.x = event.clientX;
@@ -86,11 +90,11 @@ export default class Slider extends Component {
     const centreRight = centre + this.marginBetweenItems;
     const value = x - this.x + this.dragPoint;
 
-    console.log({
-      centreLeft,
-      centreRight,
-      margin: this.marginBetweenItems,
-    })
+    // console.log({
+    //   centreLeft,
+    //   centreRight,
+    //   margin: this.marginBetweenItems,
+    // })
 
     this.$view[0].removeEventListener('mousemove', this.onSlideBound);
     this.sliderDirection('both');

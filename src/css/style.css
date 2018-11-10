@@ -35,6 +35,7 @@
 @import 'components/_work.css';
 @import 'components/_contact.css';
 @import 'components/_single-top.css';
+@import 'components/_services.css';
 
 /*VENDOR*/
 @import 'vendor/_external.css';

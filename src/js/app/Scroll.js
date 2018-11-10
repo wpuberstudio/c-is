@@ -137,6 +137,8 @@ export default class Scroll extends Hanlder {
             delay,
           },
         );
+        classie.add(item.el, 'is-animated');
+
         break;
 
       case 'fadeRight':
@@ -169,8 +171,8 @@ export default class Scroll extends Hanlder {
             delay,
           },
         );
-
         classie.add(item.el, 'is-animated');
+
         break;
 
       case 'grow':
@@ -189,8 +191,8 @@ export default class Scroll extends Hanlder {
             delay,
           },
         );
-
         classie.add(item.el, 'is-animated');
+
         break;
 
       case 'growX':
@@ -209,14 +211,15 @@ export default class Scroll extends Hanlder {
             delay,
           },
         );
-
         classie.add(item.el, 'is-animated');
+
         break;
 
       case 'splitText':
         TweenMax.killTweensOf(item.el, { opacity: true, y: true });
         TweenMax.staggerTo(item.$el.find('.splited'), timing, { y: 0, opacity: 1, delay, ease: Sine.easeOut }, 0.04);
         classie.add(item.el, 'is-animated');
+
         break;
 
       default:

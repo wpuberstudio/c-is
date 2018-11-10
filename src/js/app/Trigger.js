@@ -3,7 +3,7 @@ import createHistory from 'history/createBrowserHistory';
 
 const History = createHistory();
 const TIME_LIMIT = 5000;
-const PAGE_TITLE = 'xxx';
+const PAGE_TITLE = 'C Is';
 
 
 export default class Trigger {
@@ -46,11 +46,6 @@ export default class Trigger {
     this.timeout = null;
   }
 
-  setTitle = () => {
-    const title = $(['data-page']).data('page');
-    document.title = `${title} | ${PAGE_TITLE}`;
-  };
-
   load() {
     // cancel old request:
     if (this.request) this.request.abort();
@@ -58,7 +53,7 @@ export default class Trigger {
     // define url
     const path = window.location.pathname;
     const search = window.location.search || '';
-    const url = path + search;
+    let url = path + search;
 
     // define timeout
     window.clearTimeout(this.timeout);
@@ -118,7 +113,6 @@ export default class Trigger {
     const $loadedContent = $(container, data)[0] ? $(container, data) : $(data).filter(container);
     const code = $loadedContent.html();
 
-    this.setTitle();
     $(container).html(code);
   }
 }

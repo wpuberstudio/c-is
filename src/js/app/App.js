@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import imagesLoaded from 'imagesloaded';
-import { TweenMax } from 'gsap';
+import { TweenMax, Circ } from 'gsap';
 import 'gsap/ScrollToPlugin';
 
 import Trigger from './Trigger';
@@ -16,6 +16,7 @@ import ClassFactory from '../factories/class-factory';
 
 const classFactory = new ClassFactory();
 
+const PAGE_TITLE = 'C Is';
 const TIMING_IN = 1;
 // const TIMING_OUT = 0.4;
 
@@ -53,8 +54,7 @@ export default class Page {
 
   globalEvents() {
     $(document).on('click', '.js-ajax-trigger', this.pageTransition);
-    // $(document).on('mouseover', '.js-button-link', this.linkHover);
-    // $(document).on('mouseleave', '.js-button-link', this.linkLeave);
+    $(document).on('click', '.js-scroller', this.scroller);
 
     $(window).on('popstate', (event) => {
       if (history.length > 2 || document.referrer.length > 0) {
@@ -63,15 +63,12 @@ export default class Page {
     });
   }
 
-  // linkHover = ({ currentTarget }) => {
-  //   const $circle = $(currentTarget).find('.circle');
-  //   TweenMax.to($circle, 0.4, { css: { scale: 1.125, borderColor: '#ffffff' } });
-  // };
-
-  // linkLeave = ({ currentTarget }) => {
-  //   const $circle = $(currentTarget).find('.circle');
-  //   TweenMax.to($circle, 0.4, { css: { scale: 1, borderColor: '#ffffff' } });
-  // };
+  scroller = (event) => {
+    event.preventDefault();
+    const target = event.currentTarget.getAttribute('href');
+    const targetTop = $(target).offset().top;
+    TweenMax.to(window, 2.5, { scrollTo: targetTop, ease: Circ.easeInOut });
+  }
 
   getPage() {
     // if (jsWrapper === null) jsWrapper = document.getElementsByClassName('js-ajax-container')[0]
@@ -144,10 +141,16 @@ export default class Page {
     }
   }
 
+  setTitle = () => {
+    const title = this.$view.data('page');
+    document.title = `${title} | ${PAGE_TITLE}`;
+  };
+
   updatePage = ({ tempSlug }) => {
     this.$view = $('.main');
     this.setAnalytics(tempSlug);
     this.getPage();
+    this.setTitle();
   };
 
   pageTransition = (event, back) => {

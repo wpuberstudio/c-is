@@ -46,6 +46,11 @@
 
   &--form {
     left: -0.4rem;
+
+    @media (max-width: 768px) {
+      right: -2rem;
+      left: auto;
+    }
   }
 
   &--single-desc {
@@ -65,5 +70,34 @@
   &--single-next {
     top: 2rem;
     left: -1.6rem;
+  }
+
+  &--services-intro {
+    top: 0;
+    left: -var(--gutter-space);
+  }
+
+  &--services-outro {
+    top: 0;
+    left: calc(var(--gutter-space) * 2);
+  }
+
+  &--services-branding {
+    top: -var(--gutter-space);
+    left: -var(--gutter-space);
+    z-index: -1;
+  }
+
+  &--services-item {
+    top: 0;
+    left: -var(--gutter-space);
+    z-index: -1;
+  }
+
+  &--services-item-alt {
+    top: 0;
+    left: auto;
+    right: -var(--gutter-space);
+    z-index: -1;
   }
 }

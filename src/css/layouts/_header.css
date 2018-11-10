@@ -14,6 +14,11 @@
     width: 1060px;
   }
 
+  @media (max-width: 768px) {
+    width: 100%;
+    padding: 0 var(--content-space--mobile);
+  }
+
   &__top { padding: 1.4rem 0 1rem; }
 
   &__logo {

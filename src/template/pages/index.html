@@ -68,7 +68,7 @@
       </ul>
 
       <div class="about__button-container">
-        <a class="about__button js-button-standard js-ajax-trigger" href="/service">
+        <a class="about__button js-button-standard js-ajax-trigger" href="/services">
           <span class="button-inner">
             <span class="circle circle--small circle--about-service"></span>
             <span>See service details</span>
@@ -80,7 +80,7 @@
     </section>
 
 
-    <section class="section section--lead js-section">
+    <section class="section section--lead lead js-section">
       <div class="lead__inner">      
         <div class="lead__shape">
           <img src="/assets/images/about-image2.jpg" alt="" class="lead__overlay-image js-preload" data-parallax="125">
@@ -105,44 +105,44 @@
       </div>
     </section>
 
-    <section class="section section--work work js-section">
-      <h2 class="work__title js-title" data-animation="splitText" data-timing="0.8">
+    <section class="section section--work work-home js-section">
+      <h2 class="work-home__title js-title" data-animation="splitText" data-timing="0.8">
         <p>Our Work</p>
-        <span class="circle circle--work"></span>
+        <span class="circle circle--work-home"></span>
       </h2>
 
-      <!-- <img class="work__accent-image js-preload" src="/assets/images/accent-image.png" alt="" data-parallax="75"> -->
+      <!-- <img class="work-home__accent-image js-preload" src="/assets/images/accent-image.png" alt="" data-parallax="75"> -->
 
-      <div class="work__inner" data-animation="fadeRight">  
-        <div class="work__list js-button-arrows" data-component="Slider">
-          <div class="work__item">
-            <h3 class="work__name">ADK Recruit</h3>
-            <a href="/single" class="work__link js-ajax-trigger js-button-standard u-grid-link"></a>
-            <div class="work__image">
+      <div class="work-home__inner" data-animation="fadeRight">  
+        <div class="work-home__list js-button-arrows" data-component="Slider">
+          <div class="work-home__item">
+            <h3 class="work-home__name">ADK Recruit</h3>
+            <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
+            <div class="work-home__image">
               <img class="js-preload" src="/assets/images/work/adk.jpg" alt="">
             </div>
           </div>
 
-          <div class="work__item">
-            <h3 class="work__name">Yz Films</h3>
-            <a href="/single" class="work__link js-ajax-trigger js-button-standard u-grid-link"></a>
-            <div class="work__image">
+          <div class="work-home__item">
+            <h3 class="work-home__name">Yz Films</h3>
+            <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
+            <div class="work-home__image">
               <img class="js-preload" src="/assets/images/work/yzfilms.jpg" alt="">
             </div>
           </div>
 
-          <div class="work__item is-active">
-            <h3 class="work__name">Sun Platinum</h3>
-            <a href="/single" class="work__link js-ajax-trigger js-button-standard u-grid-link"></a>
-            <div class="work__image">
+          <div class="work-home__item is-active">
+            <h3 class="work-home__name">Sun Platinum</h3>
+            <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
+            <div class="work-home__image">
               <img class="js-preload" src="/assets/images/work/sun-platinum.jpg" alt="">
             </div>
           </div>
 
-          <div class="work__item">
-            <h3 class="work__name">Sun Platinum</h3>
-            <a href="/single" class="work__link js-ajax-trigger js-button-standard u-grid-link"></a>
-            <div class="work__image">
+          <div class="work-home__item">
+            <h3 class="work-home__name">Yuko Fujisawa</h3>
+            <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
+            <div class="work-home__image">
               <img class="js-preload" src="/assets/images/work/yukofujisawa.jpg" alt="">
             </div>
           </div>
@@ -150,48 +150,9 @@
       </div>
     </section>
 
-    <section class="section section--contact contact js-section">
-      <span class="line line--horizontal line--contact" data-animation="growX"></span>
-      <h2 class="contact__title js-title" data-animation="splitText" data-timing="0.8">
-        <p>Let’s</p><p>Have a</p><p>chat.</p>
-        <span class="circle circle--contact"></span>
-      </h2>
+    {% include 'components/_contact.html' %}
 
-      <div class="contact__inner" data-animation="grow">
-        <div class="contact__details">
-          <div class="contact__address">
-            <h4>Our Office</h4>
-            <p>02-547<br>Lewicka 17/8<br>Warsaw, Poland</p>
-          </div>
-          <div class="contact__address">
-            <h4>Email</h4>
-            <a class="js-button-light" href="">info@c-is.co</a>
-          </div>
-        </div>
-        <div class="contact__form">
-          <form action="" class="form">
-            <p>
-              <input type="text" placeholder="Your Name *">
-            </p>
-            <p>
-              <input type="text" placeholder="Your Email *">
-            </p>
-            <p>
-              Tell us about your project<br>
-              <textarea name="" id="" cols="30" rows="6" ></textarea>
-            </p>
-            <p class="u-text-right">
-              <button class="form__submit js-form-submit js-button-standard">
-                <span class="button-inner">
-                  <span class="circle circle--small circle--form"></span>
-                  <span>Send</span>
-                </span>
-              </button>
-            </p>
-          </form>
-        </div> 
-      </div>
-    </section>
+
   </article>
 </main>
 

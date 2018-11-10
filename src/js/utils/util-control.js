@@ -6,7 +6,6 @@ export default function utilControl() {
 
   $gridControl.on('change', ({ currentTarget }) => {
     const checked = currentTarget.checked;
-    console.log(checked);
     if (checked) {
       $('.util-grids').addClass('is-active');
     } else {

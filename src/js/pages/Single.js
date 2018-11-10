@@ -26,7 +26,7 @@ export default class Single extends DefaultPage {
     if (200 >= st) {
       TweenMax.to('.js-home-video', 0.6, { opacity: 1 });
     }
-  }
+  };
 
   splitWord = () => (
     new Promise((resolve) => {

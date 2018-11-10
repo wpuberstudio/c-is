@@ -187,6 +187,7 @@ const config = {
             searchPaths: [...returnEntries('./src/template/**/')],
             context : {
              project_name : pkg.title,
+             image_path: '/assets/images',
            }
           },
         }],

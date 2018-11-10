@@ -1,6 +1,10 @@
 .lead {
   position: relative;
 
+  @media (max-width: 768px) {
+    margin-top: 8rem;
+  }
+
   &__shape {
     position: absolute;
     top: 0;
@@ -25,6 +29,11 @@
   &__overlay-image {
     margin-top: -50%;
     height: 150%;
+
+    @media (max-width: 768px) {
+      opacity: 0.1;
+      filter: grayscale(1);
+    }
   }
 
   &__image {
@@ -37,12 +46,20 @@
     filter: grayscale(1) brightness(0.3);
     z-index: -1;
 
+    @media (max-width: 768px) {
+      top: -10rem;
+    }
+
     img { width: 100%; }
   }
 
   &__text {
     margin-left: 20.766rem;
-    padding-top: 7.8rem;
+    padding-top: 6.6rem;
+
+    @media (max-width: 768px) {
+      margin-left: 0;
+    }
   }
 
   &__title {
@@ -64,6 +81,12 @@
     margin-left: 6.9rem;
     padding-top: var(--space-medium);
     z-index: 2;
+
+    @media (max-width: 768px) {
+      width: 100%;
+      margin-left: 0;
+      padding: 2rem;
+    }
   }
 
   &__button-container {

@@ -30,7 +30,7 @@
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
   </head>
-  <body class="{% block pageid %} {% endblock %} root">
+  <body class="body-{% block pageid %} {% endblock %} root">
 
     <!--[if lt IE 7]>
     <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
@@ -91,13 +91,13 @@
       <nav class="navigation" role="navigation">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a class="js-button-light js-ajax-trigger" href="/service"><span>Service</span></a>
+            <a class="js-button-light js-ajax-trigger" href="/services"><span>Services</span></a>
           </li>
           <li class="navigation__item">
             <a class="js-button-light js-ajax-trigger" href="/work"><span>Work</span></a>
           </li>
           <li class="navigation__item">
-            <a class="js-button-light js-ajax-trigger" href="/contact"><span>Contact</span></a>
+            <a class="js-button-light js-scroller" href="#contact"><span>Contact</span></a>
           </li>
         </ul>
       </nav>

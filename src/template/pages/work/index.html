@@ -1,0 +1,74 @@
+{% block pageid %}work{% endblock %}
+{% block title %}work{% endblock %}
+
+{% extends 'layout/_layout.html' %}
+
+{% block content %}
+<main class="main main--work" id="main" role="main" data-page="Work" data-namespace="work">
+  <article class="content content--work work">
+    <section class="section section--work">
+      <h1 class="work__title">Work</h1>
+
+      <ul class="work__list">
+        <li class="work__item" data-parallax="150">
+          <a href="/single" class="u-grid-link js-ajax-trigger js-button-standard"></a>
+          <div class="work__text" data-animation="fadeUp">          
+            <h2 class="work__name">ADK Recruit</h2>
+            <div class="work__description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim vel dolorum quam atque sapiente.</p>
+            </div>
+          </div>
+          <div class="work__image">
+            <img class="js-preload" src="/assets/images/work/adk.jpg" alt="">
+          </div>
+        </li>
+
+        <li class="work__item" data-parallax="100">
+          <a href="/single" class="u-grid-link js-ajax-trigger js-button-standard"></a>
+          <div class="work__text" data-animation="fadeUp">          
+            <h2 class="work__name">Yz Films</h2>
+            <div class="work__description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim vel dolorum quam atque sapiente.</p>
+            </div>
+          </div>
+          <div class="work__image">
+            <img class="js-preload" src="/assets/images/work/yzfilms.jpg" alt="">
+          </div>
+        </li>
+
+        <li class="work__item" data-parallax="150">
+          <a href="/single" class="u-grid-link js-ajax-trigger js-button-standard"></a>
+          <div class="work__text" data-animation="fadeUp">          
+            <h2 class="work__name">Sun Platinum</h2>
+            <div class="work__description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim vel dolorum quam atque sapiente.</p>
+            </div>
+          </div>
+          <div class="work__image">
+            <img class="js-preload" src="/assets/images/work/sun-platinum.jpg" alt="">
+          </div>
+        </li>
+
+        <li class="work__item" data-parallax="100">
+          <a href="/single" class="u-grid-link js-ajax-trigger js-button-standard"></a>
+          <div class="work__text" data-animation="fadeUp">          
+            <h2 class="work__name">Yuko Fujisawa</h2>
+            <div class="work__description">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim vel dolorum quam atque sapiente.</p>
+            </div>
+          </div>
+          <div class="work__image">
+            <img class="js-preload" src="/assets/images/work/yukofujisawa.jpg" alt="">
+          </div>
+        </li>
+      </ul>
+    </section>
+
+    {% include 'components/_contact.html' %}
+  </article>
+</main>
+
+{% endblock %}
+
+{% block scripts %} 
+{% endblock %}

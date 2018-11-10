@@ -18,9 +18,7 @@
     }
   }
 
-  &__title {
-    opacity: 0;
-  }
+  &__title { opacity: 0; }
 
   &__inner {
     position: relative;
@@ -32,6 +30,11 @@
     margin: auto;
     padding: 0 var(--content-space);
     z-index: 2;
+
+    @media (max-width: 768px) {
+      max-width: none;
+      padding: 0 var(--content-space--mobile);
+    }
   }
 
   &__menu {
@@ -44,14 +47,17 @@
     left: 0;
     padding: 2rem var(--content-space);
     color: var(--colour-main);
-    font-size: var(--fsize-smaller);
+    /*font-size: var(--fsize-smaller);*/
+    font-size: var(--fsize-small);
     font-weight: 800;
     z-index: 3;
+
+    @media (max-width: 768px) {
+      padding: 2rem var(--content-space--mobile);
+    }
   }
 
-  &__description {
-    margin: 0;
-  }
+  &__description { margin: 0; }
 
   &__button {
     position: relative;

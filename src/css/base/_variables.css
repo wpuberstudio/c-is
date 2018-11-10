@@ -9,6 +9,7 @@
    * ======================================================================== */
   --content-width: 1280px;
   --content-space: 13.8rem;
+  --content-space--mobile: 2rem;
   --link-space: 1rem;
   --gutter-space: 3rem;
   --grid-space: 7rem;
@@ -23,7 +24,9 @@
    * ======================================================================== */
   --font-main: "Akkurat", 'Arial', "Helvetica Neue Roman", "Helvetica Neue", "Helvetica", sans-serif;
   --font-head: "Nocturne Serif", "Optima", "Baskerville Old Face", "Baskerville", serif;
-  --fsize-large: 3.25rem;
+  --fsize-largest: 3.5rem;
+  --fsize-large: 3rem;
+  --fsize-medium: 2rem;
   --fsize-small: 0.875rem;
   --fsize-smaller: 0.8125rem;
   --fsize-smallest: 0.775rem;

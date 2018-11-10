@@ -8,6 +8,10 @@
     justify-content: flex-end;
     margin-top: var(--space-medium);
     padding: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__accent-image {
@@ -25,12 +29,22 @@
     position: absolute;
     bottom: 2.3rem;
     left: 0;
+
+    @media (max-width: 768px) {
+      position: relative;
+      justify-content: flex-start;
+      margin-top: 3.333rem;
+    }
   }
 
   &__form {
     width: 395px;
     /* margin-left: 4rem; */
     color: #fff;
+
+    @media (max-width: 768px) {
+      width: 100%;
+    }
 
     p {
       margin: 1.875rem 0;
@@ -112,12 +126,16 @@
 }
 
 .form {
+  font-size: 1rem;
+
   &__submit {
     position: relative;
     border: none;
     background-color: transparent;
     color: var(--colour-main);
     font-weight: 800;
+    font-size: var(--fsize-smaller);
     z-index: 2;
+    text-transform: uppercase;
   }
 }
