@@ -16,6 +16,10 @@ export default class Home extends DefaultPage {
     // this.render();
   }
 
+  getHeight = () => {
+    $('.js-hero').css('height', w.height);
+  }
+
   handleScroll = () => {
     const st = $(window).scrollTop();
     if (w.height >= st) {

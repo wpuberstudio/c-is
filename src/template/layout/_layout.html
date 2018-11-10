@@ -87,14 +87,14 @@
     </div>
 
     <header class="header" role="banner">
-      <a class="header__logo js-ajax-trigger" href="/">{% include 'svgs/logo.svg' %}</a>
+      <a class="header__logo js-ajax-trigger" href="{{ root_path }}">{% include 'svgs/logo.svg' %}</a>
       <nav class="navigation" role="navigation">
         <ul class="navigation__list">
           <li class="navigation__item">
-            <a class="js-button-light js-ajax-trigger" href="/services"><span>Services</span></a>
+            <a class="js-button-light js-ajax-trigger" href="{{ root_path }}/services"><span>Services</span></a>
           </li>
           <li class="navigation__item">
-            <a class="js-button-light js-ajax-trigger" href="/work"><span>Work</span></a>
+            <a class="js-button-light js-ajax-trigger" href="{{ root_path }}/work"><span>Work</span></a>
           </li>
           <li class="navigation__item">
             <a class="js-button-light js-scroller" href="#contact"><span>Contact</span></a>
@@ -109,7 +109,7 @@
 
     <footer class="footer u-clear" role="contentinfo">
       <div class="footer__inner">
-        <a class="js-button-light js-ajax-trigger" href="/policy">Privacy Policy</a>
+        <a class="js-button-light js-ajax-trigger" href="{{ root_path }}/policy">Privacy Policy</a>
         <span class="copyright">© 2018 C Is</span>
       </div>
     </footer>
