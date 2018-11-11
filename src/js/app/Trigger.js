@@ -51,9 +51,15 @@ export default class Trigger {
     if (this.request) this.request.abort();
 
     // define url
+    const protocol = window.location.protocol;
+    const hostname = window.location.hostname;
     const path = window.location.pathname;
     const search = window.location.search || '';
     let url = path + search;
+
+    if (protocol === 'https:') {
+      url = protocol + hostname + path + search;
+    }
 
     // define timeout
     // window.clearTimeout(this.timeout);
@@ -69,7 +75,6 @@ export default class Trigger {
       })
       .done((data) => {
         this.loadedData = data;
-        resolve();
         console.log("success");
       })
       .fail(() => {

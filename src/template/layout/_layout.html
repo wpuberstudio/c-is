@@ -8,6 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% block title %}{% endblock %} | {{ project_name }}</title>
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests"> 
     <meta name="description" content="" />
     <meta name="keywords" content="" />
     <meta name="author" content="" />
@@ -87,7 +88,7 @@
     </div>
 
     <header class="header" role="banner">
-      <a class="header__logo js-ajax-trigger" href="{{ root_path }}">{% include 'svgs/logo.svg' %}</a>
+      <a class="header__logo js-ajax-trigger" href="{{ root_path }}/">{% include 'svgs/logo.svg' %}</a>
       <nav class="navigation" role="navigation">
         <ul class="navigation__list">
           <li class="navigation__item">

@@ -187,8 +187,8 @@ const config = {
             searchPaths: [...returnEntries('./src/template/**/')],
             context : {
              project_name : pkg.title,
-             image_path: '/c-is/assets/images',
-             root_path: '/c-is',
+             image_path: isDebug ? '/assets/images' : '/c-is/assets/images',
+             root_path: isDebug ? '' : '/c-is',
            }
           },
         }],
