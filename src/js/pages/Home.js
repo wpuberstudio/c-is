@@ -18,7 +18,7 @@ export default class Home extends DefaultPage {
 
   getHeight = () => {
     $('.js-hero').css('height', w.height);
-  }
+  };
 
   handleScroll = () => {
     const st = $(window).scrollTop();
@@ -98,6 +98,7 @@ export default class Home extends DefaultPage {
   }
 
   render() {
+    this.getHeight();
     this.splitWord().then(() => {
       this.heroAnim();
     });

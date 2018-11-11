@@ -56,54 +56,70 @@ export default class Trigger {
     let url = path + search;
 
     // define timeout
-    window.clearTimeout(this.timeout);
-    this.timeout = setTimeout(() => {
-      if (this.request) window.location.reload();
-    }, TIME_LIMIT);
+    // window.clearTimeout(this.timeout);
+    // this.timeout = setTimeout(() => {
+    //   if (this.request) window.location.reload();
+    // }, TIME_LIMIT);
 
     // return promise
     // and do the request:
     return new Promise((resolve, reject) => {
-      // do the usual xhr stuff:
-      this.request = new XMLHttpRequest();
-      this.request.open('GET', url);
-      this.request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
+      $.ajax({
+        url,
+      })
+      .done((data) => {
+        this.loadedData = data;
+        resolve();
+        console.log("success");
+      })
+      .fail(() => {
+        console.log("error");
+      })
+      .always(() => {
+        resolve();
+        console.log("complete");
+      });
 
-      // onload handler:
-      this.request.onload = () => {
-        if (this.request.status === 200) {
-          this.loadedData = this.request.responseText;
-          // this.trigger(PushStatesEvents.PROGRESS, 1);
-          resolve(true);
-        } else {
-          reject(Error(this.request.statusText));
+      // // do the usual xhr stuff:
+      // this.request = new XMLHttpRequest();
+      // this.request.open('GET', url);
+      // this.request.setRequestHeader('X-Requested-With', 'XMLHttpRequest');
 
-          if (this.request.statusText !== 'abort') {
-            window.location.reload();
-          }
-        }
+      // // onload handler:
+      // this.request.onload = () => {
+      //   if (this.request.status === 200) {
+      //     this.loadedData = this.request.responseText;
+      //     // this.trigger(PushStatesEvents.PROGRESS, 1);
+      //     resolve(true);
+      //   } else {
+      //     reject(Error(this.request.statusText));
 
-        this.request = null;
-        window.clearTimeout(this.timeout);
-      };
+      //     if (this.request.statusText !== 'abort') {
+      //       window.location.reload();
+      //     }
+      //   }
 
-      // catching errors:
-      this.request.onerror = () => {
-        console.log('error');
-        reject(Error('Network Error'));
-        window.clearTimeout(this.timeout);
-        this.request = null;
-      };
+      //   this.request = null;
+      //   window.clearTimeout(this.timeout);
+      // };
 
-      // catch progress
-      this.request.onprogress = (e) => {
-        if (e.lengthComputable) {
-          // this.trigger(PushStatesEvents.PROGRESS, e.loaded / e.total);
-        }
-      };
+      // // catching errors:
+      // this.request.onerror = () => {
+      //   console.log('error');
+      //   reject(Error('Network Error'));
+      //   window.clearTimeout(this.timeout);
+      //   this.request = null;
+      // };
 
-      // send request:
-      this.request.send();
+      // // catch progress
+      // this.request.onprogress = (e) => {
+      //   if (e.lengthComputable) {
+      //     // this.trigger(PushStatesEvents.PROGRESS, e.loaded / e.total);
+      //   }
+      // };
+
+      // // send request:
+      // this.request.send();
     });
   }
 
