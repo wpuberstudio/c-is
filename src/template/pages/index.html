@@ -15,7 +15,7 @@
         </h1>
       </div>
       <div class="hero__video js-home-video">
-        <video class="js-preload" src="/assets/videos/hero.mp4" autoplay muted loop></video>
+        <video class="js-preload" src="{{ root_path }}/assets/videos/hero.mp4" autoplay muted loop></video>
       </div>
       <div class="hero__menu" data-animation="fadeUp" data-delay="1" data-timing="1.6">
         <p class="hero__description">We create<br>design + websites</p>
@@ -31,7 +31,7 @@
 
     <section class="section section--about about js-section">
 <!--       <div class="about__image">
-        <img class="js-preload" src="/assets/images/about-image.jpg" alt="about">
+        <img class="js-preload" src="{{ image_path }}/about-image.jpg" alt="about">
       </div> -->
 
       <div class="about__inner">      
@@ -47,7 +47,7 @@
         </p>
 
         <div class="about__image" data-parallax="125">
-          <img class="js-preload" src="/assets/images/about-image.jpg" alt="about">
+          <img class="js-preload" src="{{ image_path }}/about-image.jpg" alt="about">
         </div>
       </div>
     </section>
@@ -83,12 +83,12 @@
     <section class="section section--lead lead js-section">
       <div class="lead__inner">      
         <div class="lead__shape">
-          <img src="/assets/images/about-image2.jpg" alt="" class="lead__overlay-image js-preload" data-parallax="125">
+          <img src="{{ image_path }}/about-image2.jpg" alt="" class="lead__overlay-image js-preload" data-parallax="125">
           {% include 'svgs/logo.svg' %}
         </div>
 
         <div class="lead__image" data-parallax="400">
-          <img class="js-preload" src="/assets/images/home-image.jpg" alt="Lead">
+          <img class="js-preload" src="{{ image_path }}/home-image.jpg" alt="Lead">
         </div>
 
         <span class="line line--lead" data-animation="grow"></span>
@@ -111,7 +111,7 @@
         <span class="circle circle--work-home"></span>
       </h2>
 
-      <!-- <img class="work-home__accent-image js-preload" src="/assets/images/accent-image.png" alt="" data-parallax="75"> -->
+      <!-- <img class="work-home__accent-image js-preload" src="{{ image_path }}/accent-image.png" alt="" data-parallax="75"> -->
 
       <div class="work-home__inner" data-animation="fadeRight">  
         <div class="work-home__list js-button-arrows" data-component="Slider">
@@ -119,7 +119,7 @@
             <h3 class="work-home__name">ADK Recruit</h3>
             <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
             <div class="work-home__image">
-              <img class="js-preload" src="/assets/images/work/adk.jpg" alt="">
+              <img class="js-preload" src="{{ image_path }}/work/adk.jpg" alt="">
             </div>
           </div>
 
@@ -127,7 +127,7 @@
             <h3 class="work-home__name">Yz Films</h3>
             <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
             <div class="work-home__image">
-              <img class="js-preload" src="/assets/images/work/yzfilms.jpg" alt="">
+              <img class="js-preload" src="{{ image_path }}/work/yzfilms.jpg" alt="">
             </div>
           </div>
 
@@ -135,7 +135,7 @@
             <h3 class="work-home__name">Sun Platinum</h3>
             <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
             <div class="work-home__image">
-              <img class="js-preload" src="/assets/images/work/sun-platinum.jpg" alt="">
+              <img class="js-preload" src="{{ image_path }}/work/sun-platinum.jpg" alt="">
             </div>
           </div>
 
@@ -143,7 +143,7 @@
             <h3 class="work-home__name">Yuko Fujisawa</h3>
             <a href="/single" class="work-home__link js-ajax-trigger js-button-standard u-grid-link"></a>
             <div class="work-home__image">
-              <img class="js-preload" src="/assets/images/work/yukofujisawa.jpg" alt="">
+              <img class="js-preload" src="{{ image_path }}/work/yukofujisawa.jpg" alt="">
             </div>
           </div>
         </div>
