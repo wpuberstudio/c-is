@@ -57,9 +57,9 @@ export default class Trigger {
     const search = window.location.search || '';
     let url = path + search;
 
-    if (protocol === 'https:') {
-      url = protocol + hostname + path + search;
-    }
+    // if (protocol === 'https:') {
+    //   url = protocol + hostname + path + search;
+    // }
 
     // define timeout
     // window.clearTimeout(this.timeout);
